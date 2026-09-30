@@ -121,15 +121,13 @@ function renderPolicies(){
  const s=state(),items=[["termsEnabled","terms","Terms & Conditions","Shown before checkout and in the exported storefront."],["privacyEnabled","privacy","Privacy Policy","Keep this plain and specific to the store."],["refundEnabled","refund","Refund / Cancellation","Set expectations for digital purchases."],["cookiesEnabled","cookies","Cookie note","Optional. Enable only when needed."],["disclaimerEnabled","disclaimer","General disclaimer","Optional."]];
  root.innerHTML=layout("Policies without the wall of text.","DEWIFY / POLICIES","Toggle only the pages you actually need. Edit the copy here and the export uses the same text.",
  "<section class='policy-list'>"+items.map(([toggle,key,title,hint])=>"<article class='policy-row'><label class='switch-line'><input type='checkbox' data-policy-toggle='"+toggle+"' "+(s.policies[toggle]?"checked":"")+"><span></span><b>"+esc(title)+"</b></label><p>"+esc(hint)+"</p><textarea data-policy='"+key+"' "+(s.policies[toggle]?"":"disabled")+">"+esc(s.policies[key])+"</textarea></article>").join("")+"</section>");
- $$("[data-policy-toggle]").forEach(el=>el.addEventListener("change",()=>{patch(x=>x.policies[el.dataset.policyToggle]=el.checked);renderPolicies()}));
- $$("[data-policy]").forEach(el=>el.addEventListener("input",()=>{patch(x=>x.policies[el.dataset.policy]=el.value);saveMessage()}));
+ 
 }
 function renderPayment(){
  const s=state();
  const options=[["razorpay","Razorpay","Hosted payment links for your customers."],["stripe","Stripe","Hosted payment links for your customers."]];
  root.innerHTML=layout("Customer checkout, not Dewify billing.","DEWIFY / CHECKOUT","Dewify is not charging you here. This choice only tells the exported store which provider your customers will pay.",
  "<section class='checkout-grid'><div><div class='checkout-choice-list'>"+options.map(x=>"<button type='button' class='checkout-choice "+(s.payment.provider===x[0]?"selected":"")+"' data-provider='"+x[0]+"'><span class='provider-icon'>"+(x[0]==="stripe"?"S":"R")+"</span><span><b>"+x[1]+"</b><small>"+x[2]+"</small></span><em>"+(s.payment.provider===x[0]?"SELECTED":"SELECT")+"</em></button>").join("")+"</div><div class='no-secret-box'><strong>No keys. No webhooks. No KYC here.</strong><p>After export, you create hosted payment links inside your own provider account and paste those public URLs into the exported payment config. Your customers pay you directly.</p></div></div><aside class='checkout-side'><span>SELECTED</span><strong>"+esc(s.payment.provider?s.payment.provider.toUpperCase():"NOT SET")+"</strong><p>This is a customer checkout setting, not a Dewify subscription.</p><a class='button' href='builder-publish.html'>Continue to publish ↗</a></aside></section>");
- $$("[data-provider]").forEach(b=>b.onclick=()=>{patch(x=>x.payment.provider=b.dataset.provider);renderPayment()})
 }
 function checklistRow(label,ok,href){return "<div class='check-row "+(ok?"ok":"missing")+"'><span>"+(ok?"✓":"—")+"</span><div><b>"+esc(label)+"</b><small>"+(ok?"Ready":"Needs setup")+"</small></div>"+(href?"<a href='"+href+"'>Open ↗</a>":"")+"</div>"}
 function renderPublish(){
