@@ -23,6 +23,7 @@ const app=read("builder-app.js");
 const exp=read("builder-export-v2.js");
 const acc=read("accounts.js");
 const css=read("builder.css");
+const home=read("builder.html");
 
 assert.equal((core.match(/const NICHES=\[(.*?)\];/s)?.[1].match(/"[^"]+"/g)||[]).length,12);
 assert.equal((core.match(/const STYLES=\[(.*?)\];/s)?.[1].match(/\{id:/g)||[]).length,6);
