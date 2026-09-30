@@ -44,7 +44,9 @@ assert.equal(html.includes('id="preview-overlay"'),true,"Preview modal missing."
 assert.equal(html.includes('id="preview-use"'),true,"Preview use action missing.");
 assert.equal(html.includes('id="survey-next"'),true,"Survey continue control missing.");
 assert.equal(builder.includes("payment-next"),true,"Payment continue control missing.");
-const publishIndex=builder.lastIndexOf("const safe=");\nassert.equal(publishIndex>0,true,"Publish export block missing.");\nassert.equal(builder.slice(publishIndex).includes("secretKey"),false,"Publish config must not export secret keys.");
+const publishIndex=builder.lastIndexOf("const safe=");
+assert.equal(publishIndex>0,true,"Publish export block missing.");
+assert.equal(builder.slice(publishIndex).includes("secretKey"),false,"Publish config must not export secret keys.");
 
 console.log("Builder verification passed.");
 console.log("Template matrix: 20 niches × 6 variants = 120 concepts.");
