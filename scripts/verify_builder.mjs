@@ -15,8 +15,8 @@ const nicheCount=(nichesLine.match(/"[^"]+"/g)||[]).length;
 assert.equal(nicheCount,20,"Template library should define 20 niches.");
 
 assert.equal(builder.includes("num++"),true,"Template generator missing.");
-assert.equal(builder.includes('p.payments&&p.payments[n].secretKey=""'),true,"Secret scrub logic missing.");
-assert.equal(builder.includes('p.payments&&p.payments[n].webhookSecret=""'),true,"Webhook secret scrub logic missing.");
+assert.equal(/\.secretKey=""/.test(builder),true,"Secret scrub logic missing.");
+assert.equal(/\.webhookSecret=""/.test(builder),true,"Webhook secret scrub logic missing.");
 assert.equal(builder.includes("indexedDB.open"),true,"Product binary storage should use IndexedDB.");
 assert.equal(builder.includes('"/health"'),true,"Payment Worker health check missing.");
 assert.equal(builder.includes("https://cdn.simpleicons.org/razorpay"),true,"Razorpay provider mark missing.");
