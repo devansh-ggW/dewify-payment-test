@@ -155,7 +155,7 @@ function renderPublish(){
  $("#domain-save").onclick=()=>{const v=validDomain($("#domain-input").value);if(!v){$("#domain-input").focus();return}patch(x=>x.domain=v);renderPublish()};
  $("#download-zip").onclick=()=>handleDownload(window.DEWIFY_DOWNLOAD_STORE_ZIP);
 }
-async function boot(){navReady();if(page==="home")renderHome();else if(page==="setup")renderSetup();else if(page==="templates")renderTemplates();else if(page==="editor")renderEditor();else if(page==="products")await renderProducts();else if(page==="policies")renderPolicies();else if(page==="payment")renderPayment();else if(page==="publish"){const sc=document.createElement("script");sc.src="builder-export-v2.js";sc.onload=renderPublish;sc.onerror=renderPublish;document.body.appendChild(sc)}}
+async function boot(){navReady();if(page==="home")renderHome();else if(page==="setup")renderSetup();else if(page==="templates")renderTemplates();else if(page==="editor")renderEditor();else if(page==="products")await renderProducts();else if(page==="policies")renderPolicies();else if(page==="payment")renderPayment();else if(page==="publish")renderPublish()}
 window.addEventListener("dewify:state",()=>{
  const frame=$("#live-preview");if(frame){const tt=templateById(state().templateId);frame.srcdoc=tt?templateDoc(tt,state(),true):templateDoc(getTemplates()[0],state(),true)}
  refreshConditional?.();
