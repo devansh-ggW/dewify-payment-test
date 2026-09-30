@@ -43,7 +43,7 @@ assert.equal(html.includes('id="survey-overlay"'),true,"Survey modal missing.");
 assert.equal(html.includes('id="preview-overlay"'),true,"Preview modal missing.");
 assert.equal(html.includes('id="preview-use"'),true,"Preview use action missing.");
 assert.equal(html.includes('id="survey-next"'),true,"Survey continue control missing.");
-assert.equal(html.includes('id="payment-next"')||builder.includes('id="payment-next"'),true,"Payment continue control missing.");
+assert.equal(builder.includes("payment-next"),true,"Payment continue control missing.");
 assert.equal(builder.includes("export publish config"),false,"Case-insensitive message check uses actual button text instead.");
 
 console.log("Builder verification passed.");
