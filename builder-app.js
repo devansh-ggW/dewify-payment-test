@@ -41,7 +41,7 @@ document.addEventListener("click",async e=>{
  if(!b)return;
  if(b.matches("[data-action='save']")){B.saveState();setSaveStatus("Saved");return}
  if(b.matches("[data-action='download']")){await handleDownload(window.DEWIFY_DOWNLOAD_STORE_ZIP);return}
- if(b.matches("[data-template-use]")){patch(s=>s.templateId=b.dataset.templateUse);setSaveStatus("Template selected");if(page==="templates")renderTemplates();else render();return}
+ if(b.matches("[data-template-use]")){patch(s=>s.templateId=b.dataset.templateUse);setSaveStatus("Template selected");if(page==="templates")renderTemplates();else location.href="builder-editor.html";return}
  if(b.matches("[data-template-download]")){await handleDownload(window.DEWIFY_DOWNLOAD_TEMPLATE,b.dataset.templateDownload);return}
  if(b.matches("[data-provider]")){patch(s=>s.payment.provider=b.dataset.provider);renderPayment();setSaveStatus("Checkout saved");return}
 });
@@ -58,7 +58,7 @@ document.addEventListener("input",e=>{
 document.addEventListener("change",async e=>{
  const el=e.target;
  if(el.matches("[data-field]") && el.dataset.field in state().store)patch(s=>s.store[el.dataset.field]=el.value);
- if(el.matches("[data-policy-toggle]")){patch(s=>s.policies[el.dataset.policyToggle]=el.checked);if(page==="policies")renderPolicies();else render()}
+ if(el.matches("[data-policy-toggle]")){patch(s=>s.policies[el.dataset.policyToggle]=el.checked);if(page==="policies")renderPolicies();else location.reload()}
  if(el.matches("[data-policy]"))patch(s=>s.policies[el.dataset.policy]=el.value);
 });
 function renderHome(){
