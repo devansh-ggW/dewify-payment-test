@@ -35,8 +35,8 @@ assert.equal(acc.includes("activeId"),true);
 for(const bad of ['name="email"','type="email"','name="phone"','type="tel"'])assert.equal(acc.includes(bad),false,"Account must not collect "+bad);
 
 assert.equal(app.includes('document.addEventListener("click"'),true);
-assert.equal(app.includes('data-action="save"'),true);
-assert.equal(app.includes('data-action="download"'),true);
+assert.equal(app.includes("[data-action=\'save\']")&&home.includes('data-action="save"'),true);
+assert.equal(app.includes("[data-action=\'download\']")&&home.includes('data-action="download"'),true);
 assert.equal(app.includes("data-template-use"),true);
 assert.equal(app.includes("data-template-download"),true);
 assert.equal(app.includes("Browse before you build"),true);
