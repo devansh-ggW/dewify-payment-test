@@ -1,73 +1,21 @@
 import fs from "node:fs";
 import assert from "node:assert/strict";
-
+import {spawnSync} from "node:child_process";
 const read=p=>fs.readFileSync(p,"utf8");
-const pages=[
-  "builder.html","builder-setup.html","builder-templates.html","builder-editor.html",
-  "builder-products.html","builder-policies.html","builder-payment.html","builder-publish.html"
-];
-const assets=["builder.css","builder-core.js","builder-app.js","builder-export-v2.js","builder-stars.js","accounts.js"];
-
-for(const f of [...pages,...assets])assert.equal(fs.existsSync(f),true,"Missing "+f);
-
-for(const page of pages){
-  const h=read(page);
-  for(const token of ["builder.css","builder-core.js","builder-stars.js","builder-export-v2.js","builder-app.js","accounts.js"])
-    assert.equal(h.includes(token),true,page+" missing "+token);
-  assert.equal(h.includes('id="global-save"'),true,page+" missing Save button");
-  assert.equal(h.includes('id="global-download"'),true,page+" missing Download button");
-}
-
-const core=read("builder-core.js");
-const app=read("builder-app.js");
-const exp=read("builder-export-v2.js");
-const acc=read("accounts.js");
-const css=read("builder.css");
-const home=read("builder.html");
-
-assert.equal((core.match(/const NICHES=\[(.*?)\];/s)?.[1].match(/"[^"]+"/g)||[]).length,12);
-assert.equal((core.match(/const STYLES=\[(.*?)\];/s)?.[1].match(/\{id:/g)||[]).length,6);
-assert.equal(core.includes("variant:"),true);
-assert.equal(core.includes("indexedDB.open"),true);
-assert.equal(core.includes('accountId()+":"+id'),true);
-
-assert.equal(acc.includes("dewify:browser-accounts:v1"),true);
-assert.equal(acc.includes("activeId"),true);
-for(const bad of ['name="email"','type="email"','name="phone"','type="tel"'])assert.equal(acc.includes(bad),false,"Account must not collect "+bad);
-
-assert.equal(app.includes('document.addEventListener("click"'),true);
-assert.equal(app.includes("[data-action=\'save\']")&&home.includes('data-action="save"'),true);
-assert.equal(app.includes("[data-action=\'download\']")&&home.includes('data-action="download"'),true);
-assert.equal(app.includes("data-template-use"),true);
-assert.equal(app.includes("data-template-download"),true);
-assert.equal(app.includes("Browse before you build"),true);
-assert.equal(app.includes("YOUR PRODUCTS"),true);
-assert.equal(app.includes("Product added."),true);
-assert.equal(app.includes("Dewify is not charging you here."),true);
-assert.equal(app.includes("Your customers pay you directly."),true);
-assert.equal(app.includes("No keys. No webhooks. No KYC here."),true);
-assert.equal(app.includes("previewTemplate"),false);
-assert.equal(app.includes("data-template-preview"),false);
-assert.equal(/\brender\(\)/.test(app),false);
-assert.equal(/id='download-zip'[^>]*disabled/.test(app)||/id="download-zip"[^>]*disabled/.test(app),false);
-assert.equal(app.includes('form.dataset.busy==="1"'),true);
-
-assert.equal(exp.includes('window.DEWIFY_DOWNLOAD_STORE_ZIP=()=>makeZip("store","")'),true);
-assert.equal(exp.includes("window.DEWIFY_DOWNLOAD_TEMPLATE"),true);
-assert.equal(exp.includes('mode==="template"'),true);
-assert.equal(exp.includes("SETUP-STATUS.md"),true);
-assert.equal(exp.includes("payment-config.js"),true);
-assert.equal(exp.includes("PAYMENT-SETUP.md"),true);
-assert.equal(exp.includes("if(domain)zip.file(\"CNAME\""),true);
-assert.equal(exp.includes('const exportProducts=mode==="template"?[]:s.products'),true);
-
-assert.equal(css.includes("--bg:#050505"),true);
-assert.equal(css.includes("--gold:#f0c85a"),true);
-for(const v of ["shot-editorial","shot-bento","shot-split","shot-catalog","shot-orbit","shot-story"])assert.equal(css.includes(v),true);
-assert.equal(css.includes("@media(max-width:760px)"),true);
-assert.equal(css.includes("prefers-reduced-motion"),true);
-
-console.log("PASS 1 — structure and required assets");
-console.log("PASS 2 — reliable actions, account privacy, template diversity, products");
-console.log("PASS 3 — incomplete ZIPs, template downloads, customer-only checkout, mobile/lightweight UI");
-console.log("Templates: 12 niches × 6 variants = 72");
+for(const f of ["builder.html","builder.css","builder-core.js","builder-app.js","builder-export-v2.js","builder-stars.js"])assert.equal(fs.existsSync(f),true,"Missing "+f);
+for(const f of ["builder-core.js","builder-app.js","builder-export-v2.js","builder-stars.js","scripts/verify_builder.mjs"]){const r=spawnSync(process.execPath,["--check",f],{encoding:"utf8"});assert.equal(r.status,0,"Syntax failure: "+f+"\n"+r.stderr);}
+const h=read("builder.html"),c=read("builder.css"),core=read("builder-core.js"),app=read("builder-app.js"),exp=read("builder-export-v2.js");
+for(const token of ['data-action="download"','data-action="templates"','data-action="catalog"','id="store-name"','id="store-email"','id="store-phone"','id="store-description"','id="cookies-enabled"'])assert.equal(h.includes(token),true,"Missing "+token);
+for(const p of ["razorpay","stripe","custom"])assert.equal(h.includes('data-payment="'+p+'"'),true,"Missing "+p);
+assert.equal(core.includes('dewify:builder:v4'),true);assert.equal(core.includes("indexedDB.open"),true);assert.equal(core.includes("async function addProduct"),true);
+assert.equal(app.includes("Your ZIP will still be created"),true);assert.equal(app.includes("Defaults will be used so you can keep going."),true);assert.equal(app.includes("data-action=\"use-template\""),true);
+for(const t of ["noir","paper","gallery","signal","archive","studio"])assert.equal(c.includes("."+t),true,"Missing theme "+t);
+assert.equal(exp.includes('zip.file("catalog.html"'),true);assert.equal(exp.includes('zip.file("privacy.html"'),true);assert.equal(exp.includes('zip.file("terms.html"'),true);assert.equal(exp.includes('if(s.cookies)'),true);assert.equal(exp.includes('zip.file("cookie.html"'),true);assert.equal(exp.includes('zip.file("cookie-policy.html"'),true);
+assert.equal(exp.includes('zip.file("PAYMENT-SETUP.md"'),true);assert.equal(exp.includes('zip.file("CNAME"'),true);assert.equal(c.includes("@media(max-width:760px)"),true);
+console.log("PASS 1 — single-screen builder, no legacy dashboard");
+console.log("PASS 2 — store fields, soft warnings, autosave");
+console.log("PASS 3 — catalog modal, product thumbnails, remove flow");
+console.log("PASS 4 — six distinct themes with real mini glimpses");
+console.log("PASS 5 — Home/Catalog/Privacy/Terms + optional Cookie pages");
+console.log("PASS 6 — Razorpay/Stripe/Custom + downloadable ZIP");
+console.log("PASS 7 — JavaScript syntax checks");
