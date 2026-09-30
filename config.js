@@ -1,8 +1,8 @@
 window.DEWIFY_CONFIG = {
   brand: "DEWIFY",
   supportEmail: "dewifystores@gmail.com",
-  PADDLE_ENVIRONMENT: "production",
-  PADDLE_CLIENT_TOKEN: "live_9fcd118aea6146c1a0052a9298a",
+  PADDLE_ENVIRONMENT: "sandbox",
+  PADDLE_CLIENT_TOKEN: "",
   products: [
     {
       id: "eboox-100",
