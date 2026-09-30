@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1536" viewBox="0 0 1024 1536" role="img" aria-labelledby="title desc">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8d6a2e"/>
+      <stop offset=".45" stop-color="#c5a45a"/>
+      <stop offset="1" stop-color="#7a5b28"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#fbfaf6"/>
+      <stop offset="1" stop-color="#f0ede4"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="24%" r="52%">
+      <stop offset="0" stop-color="#dce9dc" stop-opacity=".72"/>
+      <stop offset=".68" stop-color="#f8f6ef" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grain" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="9" r=".7" fill="#294b35" opacity=".055"/>
+      <circle cx="25" cy="17" r=".6" fill="#a27d36" opacity=".045"/>
+      <circle cx="15" cy="30" r=".55" fill="#294b35" opacity=".04"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#193020" flood-opacity=".16"/>
+    </filter>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#193020" flood-opacity=".10"/>
+    </filter>
+  </defs>
+
+  <title id="title">The AI Money Arc</title>
+  <desc id="desc">A light premium editorial guide to AI, skills, digital products and modern income.</desc>
+
+  <rect width="1024" height="1536" fill="url(#paper)"/>
+  <rect width="1024" height="1536" fill="url(#halo)"/>
+  <rect width="1024" height="1536" fill="url(#grain)"/>
+
+  <rect x="38" y="38" width="948" height="1460" rx="2" fill="none" stroke="#9b7737" stroke-width="2"/>
+  <rect x="54" y="54" width="916" height="1428" rx="1" fill="none" stroke="#31583d" stroke-width="2" stroke-opacity=".78"/>
+
+  <text x="80" y="100" fill="#31583d" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" letter-spacing="7">DEWIFY / PRIVATE EDITION</text>
+  <text x="944" y="100" text-anchor="end" fill="#6f755f" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" letter-spacing="3.2">LEARN / BUILD / EARN / GROW</text>
+  <path d="M80 124H944" stroke="#b69a60" stroke-width="1.5" stroke-opacity=".5"/>
+
+  <g transform="translate(512 247)">
+    <circle r="91" fill="#f7f5ee" stroke="#31583d" stroke-width="2.5"/>
+    <circle r="74" fill="none" stroke="#b58d45" stroke-width="1.6" stroke-opacity=".85"/>
+    <circle r="58" fill="#31583d"/>
+    <path d="M-32 24L-9 -5L11 10L34 -22L26 -24L40 -42L43 -17L28 -25L36 -24L11 7L-10 -3L-28 20Z" fill="#f4df9e"/>
+    <path d="M-35 34Q0 55 35 34" fill="none" stroke="#d5b96f" stroke-width="1.6"/>
+    <text y="119" text-anchor="middle" fill="#60715f" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" letter-spacing="3.2">MODERN WEALTH / DIGITAL ERA</text>
+  </g>
+
+  <text x="512" y="446" text-anchor="middle" fill="#6b7466" font-family="Georgia,Times New Roman,serif" font-size="38" font-weight="600" letter-spacing="13">THE</text>
+  <text x="512" y="556" text-anchor="middle" fill="#101714" font-family="Georgia,Times New Roman,serif" font-size="86" font-weight="700" letter-spacing=".5">AI MONEY</text>
+  <text x="512" y="688" text-anchor="middle" fill="url(#gold)" font-family="Georgia,Times New Roman,serif" font-size="146" font-weight="700" letter-spacing="10">ARC</text>
+  <path d="M210 723H425M599 723H814" stroke="#a17b39" stroke-width="2" opacity=".78"/>
+  <circle cx="512" cy="723" r="4" fill="#31583d"/>
+
+  <text x="512" y="789" text-anchor="middle" fill="#3f5145" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" letter-spacing="4.2">LEARN AI. BUILD REAL SKILLS. CREATE LEVERAGE.</text>
+
+  <g transform="translate(122 874)">
+    <rect width="780" height="304" rx="14" fill="#fffefa" stroke="#31583d" stroke-width="2"/>
+    <rect x="16" y="16" width="748" height="272" rx="9" fill="none" stroke="#bca36d" stroke-width="1.25"/>
+    <rect x="30" y="30" width="9" height="244" rx="4" fill="#31583d"/>
+    <text x="62" y="72" fill="#90713a" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" letter-spacing="5">THE PLAYBOOK</text>
+    <text x="62" y="129" fill="#131b17" font-family="Georgia,Times New Roman,serif" font-size="33" font-weight="600">Knowledge → Skill → Asset</text>
+    <path d="M62 157H714" stroke="#c8c1b0" stroke-width="1.4"/>
+    <text x="62" y="199" fill="#31583d" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" letter-spacing="2.8">AI / AUTOMATION / DIGITAL PRODUCTS / SYSTEMS</text>
+    <text x="62" y="235" fill="#667064" font-family="Arial,Helvetica,sans-serif" font-size="14" letter-spacing="1.4">A practical route from learning to execution.</text>
+    <circle cx="704" cy="214" r="24" fill="#f1ede0" stroke="#b69a60" stroke-width="1.5"/>
+    <path d="M692 215L700 223L716 204" fill="none" stroke="#31583d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g transform="translate(512 1232)">
+    <rect x="-176" y="-1" width="352" height="2" fill="#c8b27e"/>
+    <rect x="-106" y="-9" width="212" height="18" rx="9" fill="#f7f4eb"/>
+    <text x="0" y="4" text-anchor="middle" fill="#60715f" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="700" letter-spacing="3.2">A PRACTICAL AI INCOME GUIDE</text>
+  </g>
+
+  <text x="512" y="1329" text-anchor="middle" fill="#737d71" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" letter-spacing="6">BY</text>
+  <text x="512" y="1382" text-anchor="middle" fill="url(#gold)" font-family="Georgia,Times New Roman,serif" font-size="35" font-weight="700" letter-spacing="8">MARCO VEX</text>
+  <path d="M512 1407V1450" stroke="#31583d" stroke-width="2"/>
+  <text x="512" y="1471" text-anchor="middle" fill="#737d71" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="700" letter-spacing="3.6">PRIVATE EDITION / DIGITAL GUIDE</text>
+</svg>

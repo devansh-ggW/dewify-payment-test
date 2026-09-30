@@ -1,0 +1,4 @@
+/* DEWIFY — ultra-light interactive stars. One canvas, no images, no blur filters. */
+#starfield{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:1;transform:translate3d(0,0,0);will-change:transform;backface-visibility:hidden;contain:strict;mix-blend-mode:screen;}
+body>header,body>main,body>footer{position:relative;z-index:2;}
+@media (prefers-reduced-motion:reduce){#starfield{opacity:.72;mix-blend-mode:normal;}}

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="/favicon.ico?v=20260920" type="image/x-icon" sizes="any">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#070707">
+  <meta name="description" content="AI MONEY ARC — a practical digital learning book about AI, business, real skills and disciplined execution.">
+  <title>AI MONEY ARC — DEWIFY</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .arc-product{padding:86px 0 110px;position:relative;z-index:2}
+    .arc-grid{display:grid;grid-template-columns:minmax(280px,430px) minmax(0,1fr);gap:70px;align-items:start}
+    .arc-cover{position:sticky;top:104px}
+    .arc-cover img{display:block;width:100%;aspect-ratio:2/3;object-fit:cover;border:1px solid var(--line-strong);border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.44)}
+    .arc-meta{display:flex;justify-content:space-between;gap:16px;color:var(--dim);font:9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+    .arc-main h1{margin:0;font-size:clamp(58px,8vw,108px);line-height:.82;letter-spacing:-.09em}
+    .arc-main h1 span{color:transparent;-webkit-text-stroke:1px rgba(244,242,236,.72)}
+    .arc-sub{max-width:680px;margin:28px 0 0;color:var(--muted);font-size:15px;line-height:1.75}
+    .arc-price{display:flex;align-items:end;justify-content:space-between;gap:20px;padding:24px 0;margin-top:34px;border-block:1px solid var(--line)}
+    .arc-price strong{font-size:24px;letter-spacing:-.04em}
+    .arc-status{margin-top:10px;color:var(--dim);font:9px ui-monospace,SFMono-Regular,Menlo,monospace}
+    .arc-section{margin-top:42px}
+    .arc-section h2{margin:0 0 18px;font-size:25px;letter-spacing:-.05em}
+    .arc-list{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--line);background:var(--line)}
+    .arc-list div{background:rgba(12,12,12,.86);padding:16px}
+    .arc-list span{display:block;color:var(--dim);font:8px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}
+    .arc-list strong{display:block;margin-top:12px;font-size:12px;letter-spacing:.02em}
+    .arc-note{padding:20px;border:1px solid var(--line-strong);background:rgba(255,255,255,.035);color:var(--muted);font-size:11px;line-height:1.7}
+    .success-panel{position:fixed;inset:50% auto auto 50%;transform:translate(-50%,-50%);z-index:71;width:min(560px,calc(100% - 24px));padding:30px;background:#0c0c0c;border:1px solid var(--line-strong);box-shadow:var(--shadow);display:none}
+    .modal.is-open .success-panel{display:block}
+    @media(max-width:800px){.arc-grid{grid-template-columns:1fr;gap:38px}.arc-cover{position:static;max-width:390px;margin:0 auto}.arc-list{grid-template-columns:1fr}.arc-price{align-items:stretch;flex-direction:column}}
+  
+    .download-locked{opacity:.72}
+    .download-locked .is-download-locked,.download-locked a[aria-disabled="true"]{background:#6a6a6a!important;color:#d8d8d8!important;border-color:#6a6a6a!important;cursor:not-allowed!important;pointer-events:auto}
+</style>
+  <link rel="stylesheet" href="local-profile.css">
+</head>
+<body>
+<canvas id="starfield" aria-hidden="true"></canvas>
+<header class="site-header"><div class="container nav"><a class="brand" href="index.html">DEWIFY</a><nav class="nav-links"><a href="products.html">Learn</a><a href="index.html#mindset">Mindset</a><a href="index.html#faq">FAQ</a></nav><span class="store-pill">DROP 01</span></div></header>
+
+<main class="arc-product">
+  <div class="container arc-grid">
+    <div class="arc-cover">
+      <img src="assets/ai-money-arc-cover.svg" alt="AI MONEY ARC ebook front cover">
+    </div>
+
+    <div class="arc-main">
+      <div class="arc-meta"><span>DEWIFY / DIGITAL LEARNING</span><span>DROP 01 / V1.0</span></div>
+      <h1>AI MONEY<br><span>ARC.</span></h1>
+      <p class="arc-sub">A practical guide to learning AI, building real skills, understanding business, developing discipline, and turning ideas into action.</p>
+
+      <div class="arc-price">
+        <div>
+          <strong id="productPrice">$2.99</strong>
+          <div class="arc-status" id="checkoutStatus">Loading local price &amp; secure checkout…</div>
+        </div>
+        <button class="button button-light" id="buyButton" type="button">Buy AI MONEY ARC ↗</button>
+      </div>
+
+      <div class="purchase-download-bar download-locked" id="downloadBar">
+        <div>
+          <span id="downloadStateLabel">DOWNLOAD LOCKED</span>
+          <strong id="downloadStateTitle">Pay to unlock your download.</strong>
+          <p id="downloadStateCopy">Complete your purchase to unlock the AI MONEY ARC ZIP download.</p>
+        </div>
+        <a class="button button-light" id="downloadPersistent" href="#" download="AI MONEY ARC.zip" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">Pay to unlock download</a>
+      </div>
+
+      <section class="arc-section">
+        <h2>What's inside</h2>
+        <div class="arc-list">
+          <div><span>01</span><strong>AI FUNDAMENTALS</strong></div>
+          <div><span>02</span><strong>BUSINESS THINKING</strong></div>
+          <div><span>03</span><strong>VALUABLE SKILLS</strong></div>
+          <div><span>04</span><strong>PROBLEM DISCOVERY</strong></div>
+          <div><span>05</span><strong>PRODUCTS &amp; OFFERS</strong></div>
+          <div><span>06</span><strong>MARKETING &amp; SALES</strong></div>
+          <div><span>07</span><strong>DISCIPLINE SYSTEM</strong></div>
+          <div><span>08</span><strong>30-DAY AI MONEY ARC</strong></div>
+        </div>
+      </section>
+
+      <section class="arc-section">
+        <h2>Included with your purchase</h2>
+        <div class="arc-list">
+          <div><span>01 / MAIN</span><strong>AI MONEY ARC — THE GUIDE</strong></div>
+          <div><span>02 / BONUS</span><strong>AI MONEY ARC — PROMPT VAULT</strong></div>
+          <div><span>FORMAT</span><strong>TWO PDFs IN ONE ZIP</strong></div>
+          <div><span>DOWNLOAD</span><strong>ONE AI MONEY ARC ZIP</strong></div>
+        </div>
+        <div class="arc-note" style="margin-top:12px">
+          <strong>THE GUIDE</strong><br>
+          The full digital ebook with practical lessons, exercises, reality checks, discipline challenges and a step-by-step building system.
+          <br><br>
+          <strong>THE PROMPT VAULT</strong><br>
+          A separate companion PDF with 20 prompt categories covering business ideas, problem discovery, market research, customer research, product creation, offers, branding, content, marketing, sales, productivity, learning, automation, discipline, project planning, research and AI workflows.
+        </div>
+      </section>
+
+      <section class="arc-section">
+        <h2>Two files. One system.</h2>
+        <div class="arc-note">
+          <strong>LEARN → APPLY</strong><br>
+          The book teaches the method. The Prompt Vault gives you ready-to-use starting points for applying it with AI. Both PDFs are delivered together in one ZIP named <strong>AI MONEY ARC.zip</strong>.
+        </div>
+      </section>
+
+      <section class="arc-section">
+        <h2>Before you buy</h2>
+        <div class="arc-note">
+          This is an educational digital product, not a promise of income. Results depend on your skills, decisions, market, effort and circumstances. Read the full description and refund policy before purchasing.
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="footer"><div class="container footer-inner"><div><a class="brand" href="index.html">DEWIFY</a><p>Learn. Build. Repeat.</p></div><div class="footer-links"><a href="products.html">Learn</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund-policy.html">Refund Policy</a></div><div class="footer-contact"><span class="eyebrow">SUPPORT</span><a href="mailto:dewifystores@gmail.com">dewifystores@gmail.com ↗</a></div><span class="copyright">© 2026 DEWIFY</span></div></footer>
+
+<div class="modal" id="successModal" aria-hidden="true"><div class="scrim"></div><div class="success-panel">
+  <p class="eyebrow">PAYMENT CONFIRMED</p>
+  <h2>You're in.</h2>
+  <p class="success-lead">Your download is ready. Everything is packed into one ZIP.</p>
+  <div class="success-meta"><div><span>TRANSACTION</span><strong id="successTransaction">—</strong></div><div><span>PRODUCT</span><strong id="productName">AI MONEY ARC</strong></div></div>
+  <div class="success-actions">
+    <a class="button button-light is-download-locked" id="downloadBook" href="#" download="AI MONEY ARC.zip" aria-disabled="true" tabindex="-1" target="_blank" rel="noopener">Download AI MONEY ARC ↗</a>
+    <button class="button button-ghost" id="closeSuccess" type="button">Close</button>
+  </div>
+  <p class="success-note">The ZIP contains both <strong>AI MONEY ARC.pdf</strong> and <strong>AI MONEY ARC - Prompt Vault.pdf</strong>.</p>
+</div></div>
+
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js" defer></script>
+<script src="config.js?v=20260924-11" defer></script>
+<script src="stars.js?v=20260920-3" defer></script>
+<script src="digital.js?v=20260920-12" defer></script>
+  <script src="local-profile.js" defer></script>
+</body>
+</html>

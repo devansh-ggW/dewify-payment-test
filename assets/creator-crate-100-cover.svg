@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1536" role="img" aria-labelledby="title desc">
+<defs>
+<linearGradient id="v" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f1eaff"/><stop offset=".45" stop-color="#a978ff"/><stop offset="1" stop-color="#5a29b6"/></linearGradient>
+<linearGradient id="edge" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#5c3a94"/><stop offset=".5" stop-color="#b78aff"/><stop offset="1" stop-color="#3b2567"/></linearGradient>
+<filter id="s"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000" flood-opacity=".6"/></filter>
+<pattern id="grain" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="7" cy="9" r=".7" fill="#fff" opacity=".03"/><circle cx="22" cy="23" r=".6" fill="#fff" opacity=".02"/></pattern>
+</defs>
+<title id="title">Creator Crate 100</title><desc id="desc">Dark premium creator pack with fifty website and fifty design templates.</desc>
+<rect width="1024" height="1536" fill="#08080c"/><rect width="1024" height="1536" fill="url(#grain)"/>
+<rect x="44" y="44" width="936" height="1448" rx="12" fill="none" stroke="#3d3250" stroke-width="2"/>
+<rect x="58" y="58" width="908" height="1420" rx="8" fill="none" stroke="#17131e"/>
+<text x="76" y="108" fill="#948aa2" font-family="Arial" font-size="16" letter-spacing="8">DEWIFY / DIGITAL DROP 02</text>
+<text x="76" y="165" fill="#7043be" font-family="Arial" font-size="12" font-weight="700" letter-spacing="5">THE STARTING SHELF</text>
+<path d="M76 190H948" stroke="#2d2539"/>
+<text x="76" y="432" fill="#f5f2f8" font-family="Arial" font-size="104" font-weight="900" letter-spacing="-5">CREATOR</text>
+<text x="76" y="548" fill="#f5f2f8" font-family="Arial" font-size="104" font-weight="900" letter-spacing="-5">CRATE</text>
+<text x="76" y="700" fill="url(#v)" font-family="Arial" font-size="160" font-weight="900" letter-spacing="-9">100</text>
+<text x="76" y="768" fill="#b8afc5" font-family="Arial" font-size="18" letter-spacing="4">50 WEBSITES  /  50 DESIGNS</text>
+<g transform="translate(566 858)" filter="url(#s)">
+<path d="M16 84L174 28L334 84V366L174 432L16 366Z" fill="#111117" stroke="url(#edge)" stroke-width="4"/>
+<path d="M16 84L174 148L334 84" fill="none" stroke="#b07dff" stroke-width="3"/>
+<path d="M50 100V340L174 391L300 340V101" fill="none" stroke="#35264f" stroke-width="2"/>
+<rect x="102" y="144" width="142" height="150" rx="16" fill="#0a0a0e" stroke="#8f61ec" stroke-width="3"/>
+<circle cx="173" cy="172" r="8" fill="#f1eaff"/>
+<path d="M128 208H218M128 238H218M128 268H194" stroke="#7745cf" stroke-width="9" stroke-linecap="round"/>
+<path d="M174 28V-4" stroke="#9d70ed" stroke-width="3"/><circle cx="174" cy="-14" r="10" fill="#d7c0ff"/>
+<text x="174" y="478" text-anchor="middle" fill="#8f7ab1" font-family="Arial" font-size="12" letter-spacing="4">OPEN THE CRATE</text>
+</g>
+<g transform="translate(76 1022)">
+<rect width="435" height="244" rx="14" fill="#0f0f15" stroke="#2c2637"/>
+<text x="28" y="44" fill="#8f68d7" font-family="Arial" font-size="13" font-weight="700" letter-spacing="4">WHAT'S INSIDE</text>
+<text x="28" y="91" fill="#f2eef6" font-family="Arial" font-size="25" font-weight="800">100 editable foundations.</text>
+<text x="28" y="127" fill="#f2eef6" font-family="Arial" font-size="25" font-weight="800">Made to be customized.</text>
+<path d="M28 154H398" stroke="#383040"/>
+<text x="28" y="190" fill="#81788e" font-family="Arial" font-size="15">WEBSITE • DESIGN • CREATOR</text>
+<text x="28" y="219" fill="#81788e" font-family="Arial" font-size="15">BUSINESS • EVENTS • FOOD • BEAUTY</text>
+</g>
+<text x="76" y="1416" fill="#958a9f" font-family="Arial" font-size="14" letter-spacing="5">CREATOR CRATE / 100</text>
+<text x="948" y="1416" text-anchor="end" fill="#5b5364" font-family="Arial" font-size="12" letter-spacing="4">DEWIFY</text>
+</svg>

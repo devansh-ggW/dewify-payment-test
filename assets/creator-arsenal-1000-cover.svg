@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1536" role="img" aria-labelledby="title desc">
+<defs>
+<linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8efff"/><stop offset=".45" stop-color="#69a8ff"/><stop offset="1" stop-color="#24468d"/></linearGradient>
+<filter id="s"><feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#000" flood-opacity=".62"/></filter>
+</defs>
+<title id="title">Creator Arsenal 1000</title><desc id="desc">Dark premium creator arsenal with 500 website and 500 design templates.</desc>
+<rect width="1024" height="1536" fill="#07090d"/><rect x="44" y="44" width="936" height="1448" rx="12" fill="none" stroke="#263f67" stroke-width="2"/>
+<text x="512" y="108" text-anchor="middle" fill="#8d9aac" font-family="Arial" font-size="16" letter-spacing="8">DEWIFY / PRESENTS</text>
+<text x="512" y="166" text-anchor="middle" fill="#5e91db" font-family="Arial" font-size="12" font-weight="700" letter-spacing="5">THE COMPLETE CREATOR ARMORY</text>
+<path d="M78 190H946" stroke="#243249"/>
+<text x="512" y="402" text-anchor="middle" fill="#f4f7fc" font-family="Arial" font-size="87" font-weight="900">CREATOR</text>
+<text x="512" y="508" text-anchor="middle" fill="url(#b)" font-family="Arial" font-size="94" font-weight="900">ARSENAL</text>
+<text x="512" y="630" text-anchor="middle" fill="#fff" font-family="Arial" font-size="150" font-weight="900" letter-spacing="-9">1000</text>
+<path d="M122 674H408M616 674H902" stroke="#34445c" stroke-width="2"/>
+<text x="512" y="724" text-anchor="middle" fill="#aab4c2" font-family="Arial" font-size="17" letter-spacing="4">500 WEBSITE TEMPLATES  +  500 DESIGN TEMPLATES</text>
+<g transform="translate(110 790)" filter="url(#s)">
+<rect width="804" height="366" rx="18" fill="#0d121a" stroke="#1d314d" stroke-width="2"/>
+<text x="30" y="46" fill="#73a9ff" font-family="Arial" font-size="12" letter-spacing="4">THE ARMORY / CURATED LOADOUT</text>
+<g transform="translate(30 73)">
+<rect width="224" height="238" rx="12" fill="#151d29" stroke="#34537e"/><rect x="18" y="24" width="188" height="18" rx="7" fill="#2b3848"/><rect x="18" y="66" width="188" height="62" rx="9" fill="#24599f"/><rect x="18" y="149" width="78" height="48" rx="8" fill="#25313f"/><rect x="110" y="149" width="96" height="10" rx="5" fill="#707c8c"/><text x="18" y="222" fill="#9dc5ff" font-family="Arial" font-size="10" letter-spacing="2">WEBSITE</text>
+<rect x="260" width="224" height="238" rx="12" fill="#f3f6fb" stroke="#b7c7da"/><text x="372" y="74" text-anchor="middle" fill="#1f2934" font-family="Georgia,serif" font-size="25">MAKE IT</text><text x="372" y="108" text-anchor="middle" fill="#1f2934" font-family="Georgia,serif" font-size="25">MEMORABLE</text><rect x="294" y="142" width="102" height="37" rx="18" fill="#4d78bb"/><text x="345" y="165" text-anchor="middle" fill="#fff" font-family="Arial" font-size="10" font-weight="700">LAUNCH</text><text x="278" y="222" fill="#687687" font-family="Arial" font-size="10" letter-spacing="2">DESIGN</text>
+<rect x="520" width="224" height="238" rx="12" fill="#111821" stroke="#2a405d"/><circle cx="680" cy="72" r="44" fill="#3e84e5" opacity=".18"/><text x="540" y="58" fill="#cad8e8" font-family="Arial" font-size="11" letter-spacing="2">PRODUCT / SAAS</text><text x="540" y="103" fill="#fff" font-family="Arial" font-size="22" font-weight="800">BUILD FASTER</text><rect x="540" y="129" width="178" height="8" rx="4" fill="#404c5b"/><rect x="540" y="152" width="142" height="8" rx="4" fill="#2c3948"/><rect x="540" y="175" width="113" height="8" rx="4" fill="#24303d"/><text x="540" y="222" fill="#7bb1ff" font-family="Arial" font-size="10" letter-spacing="2">WEBSITE</text></g></g>
+<text x="512" y="1270" text-anchor="middle" fill="#8d98a7" font-family="Arial" font-size="15" letter-spacing="4">BUSINESS • WEDDINGS • EVENTS • FOOD • BEAUTY</text>
+<text x="512" y="1307" text-anchor="middle" fill="#8d98a7" font-family="Arial" font-size="15" letter-spacing="4">SAAS • PORTFOLIO • MENUS • SOCIAL • MORE</text>
+<text x="512" y="1382" text-anchor="middle" fill="url(#b)" font-family="Arial" font-size="18" font-weight="700" letter-spacing="5">1000 TEMPLATES / ONE CREATOR ARSENAL</text>
+<text x="78" y="1440" fill="#8d99a7" font-family="Arial" font-size="14" letter-spacing="6">DEWIFY</text>
+</svg>

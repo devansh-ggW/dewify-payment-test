@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1536" viewBox="0 0 1024 1536" role="img" aria-labelledby="title desc">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset=".58" stop-color="#f7f4ff"/><stop offset="1" stop-color="#e1d4ff"/></linearGradient>
+  <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5720d8"/><stop offset=".5" stop-color="#9b69ff"/><stop offset="1" stop-color="#321084"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="22" stdDeviation="26" flood-color="#201044" flood-opacity=".20"/></filter>
+</defs>
+<title id="title">WEBBLE 500</title><desc id="desc">Premium white, purple and black editable website template collection cover.</desc>
+<rect width="1024" height="1536" fill="url(#bg)"/>
+<path d="M0 0H1024V270L760 430H0Z" fill="#09090e"/>
+<path d="M0 0H1024V166L816 296H0Z" fill="#2b145f"/>
+<text x="72" y="126" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="18" letter-spacing="8">DEWIFY / DIGITAL DROP</text>
+<text x="72" y="172" fill="#cbb8ff" font-family="Arial,Helvetica,sans-serif" font-size="13" letter-spacing="5">EDITABLE WEBSITE TEMPLATE LIBRARY</text>
+<text x="72" y="558" fill="#101018" font-family="Arial,Helvetica,sans-serif" font-size="122" font-weight="900" letter-spacing="-7">WEBBLE</text>
+<text x="72" y="690" fill="url(#purple)" font-family="Arial,Helvetica,sans-serif" font-size="170" font-weight="900" letter-spacing="-12">500</text>
+<rect x="74" y="738" width="320" height="5" fill="#7139e9"/>
+<text x="72" y="794" fill="#25173f" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700" letter-spacing="4">500 EDITABLE WEBSITES</text>
+<text x="72" y="838" fill="#74677f" font-family="Arial,Helvetica,sans-serif" font-size="18" letter-spacing="2">HTML + CSS + JS INLINE • RESPONSIVE • READY TO EDIT</text>
+
+<g transform="translate(535 867)" filter="url(#shadow)">
+  <g transform="rotate(-9 188 230)">
+    <rect width="366" height="455" rx="16" fill="#0f0f14"/>
+    <circle cx="28" cy="30" r="5" fill="#fff"/><circle cx="46" cy="30" r="5" fill="#8c5cf6"/><circle cx="64" cy="30" r="5" fill="#4320a8"/>
+    <rect x="28" y="66" width="310" height="22" rx="9" fill="#26222c"/>
+    <rect x="28" y="120" width="310" height="52" rx="12" fill="#6d3be8"/>
+    <rect x="28" y="194" width="96" height="116" rx="10" fill="#27232d"/>
+    <rect x="140" y="194" width="198" height="12" rx="6" fill="#706b78"/>
+    <rect x="140" y="219" width="166" height="10" rx="5" fill="#4b4653"/>
+    <rect x="140" y="245" width="136" height="10" rx="5" fill="#3b3742"/>
+    <rect x="28" y="343" width="310" height="10" rx="5" fill="#4b4653"/>
+    <text x="28" y="406" fill="#d8ccff" font-family="Arial,Helvetica,sans-serif" font-size="13" letter-spacing="3">STARTUP / SAAS</text>
+  </g>
+  <g transform="translate(70 54) rotate(6 188 230)">
+    <rect width="366" height="455" rx="16" fill="#fff" stroke="#d6c9ed"/>
+    <circle cx="28" cy="30" r="5" fill="#111"/><circle cx="46" cy="30" r="5" fill="#7642ef"/><circle cx="64" cy="30" r="5" fill="#d4c6ff"/>
+    <rect x="28" y="66" width="310" height="22" rx="9" fill="#efebf5"/>
+    <text x="28" y="142" fill="#17141c" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="800">A sharper web</text>
+    <text x="28" y="177" fill="#17141c" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="800">starts here.</text>
+    <rect x="28" y="212" width="108" height="40" rx="20" fill="url(#purple)"/>
+    <text x="82" y="238" text-anchor="middle" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700">OPEN SITE</text>
+    <rect x="28" y="289" width="310" height="8" rx="4" fill="#d8d1e5"/>
+    <rect x="28" y="313" width="248" height="8" rx="4" fill="#e7e2ed"/>
+    <rect x="28" y="337" width="180" height="8" rx="4" fill="#eeeaf3"/>
+    <text x="28" y="404" fill="#6b6077" font-family="Arial,Helvetica,sans-serif" font-size="13" letter-spacing="3">AGENCY / PRODUCT / STORE</text>
+  </g>
+</g>
+<g transform="translate(72 1048)">
+  <rect width="442" height="240" rx="16" fill="#fff" fill-opacity=".9" stroke="#cec0eb"/>
+  <text x="28" y="43" fill="#7037e6" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="800" letter-spacing="4">THE LIBRARY</text>
+  <text x="28" y="92" fill="#15131a" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="800">500 directions.</text>
+  <text x="28" y="126" fill="#15131a" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="800">One editable stack.</text>
+  <path d="M28 152H382" stroke="#d8cee9"/>
+  <text x="28" y="187" fill="#6e6478" font-family="Arial,Helvetica,sans-serif" font-size="15">SAAS • AGENCY • BUSINESS • CREATOR</text>
+  <text x="28" y="216" fill="#6e6478" font-family="Arial,Helvetica,sans-serif" font-size="15">EVENTS • RESTAURANT • PORTFOLIO • MORE</text>
+</g>
+<text x="72" y="1418" fill="#241b34" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="800" letter-spacing="6">WEBBLE / 500</text>
+<text x="952" y="1418" text-anchor="end" fill="#6e587f" font-family="Arial,Helvetica,sans-serif" font-size="14" letter-spacing="4">DEWIFY</text>
+</svg>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1536" role="img" aria-labelledby="title desc">
+<defs>
+<linearGradient id="m" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd9f4"/><stop offset=".45" stop-color="#e765c9"/><stop offset="1" stop-color="#79206e"/></linearGradient>
+<filter id="s"><feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#000" flood-opacity=".62"/></filter>
+</defs>
+<title id="title">Creator Stash 700</title><desc id="desc">Dark premium creator stash with 350 website and 350 design templates.</desc>
+<rect width="1024" height="1536" fill="#09080c"/><rect x="44" y="44" width="936" height="1448" rx="12" fill="none" stroke="#552b51" stroke-width="2"/>
+<text x="78" y="108" fill="#978d9c" font-family="Arial" font-size="16" letter-spacing="8">DEWIFY / DIGITAL DROP 05</text>
+<text x="78" y="166" fill="#b54ca1" font-family="Arial" font-size="12" font-weight="700" letter-spacing="5">THE DEEP SHELF</text>
+<path d="M78 190H946" stroke="#372638"/>
+<text x="78" y="432" fill="#f5f1f7" font-family="Arial" font-size="103" font-weight="900">CREATOR</text>
+<text x="78" y="548" fill="#f5f1f7" font-family="Arial" font-size="103" font-weight="900">STASH</text>
+<text x="78" y="700" fill="url(#m)" font-family="Arial" font-size="160" font-weight="900" letter-spacing="-9">700</text>
+<text x="78" y="768" fill="#c1afbe" font-family="Arial" font-size="18" letter-spacing="4">350 WEBSITES  /  350 DESIGNS</text>
+<g transform="translate(544 838)" filter="url(#s)">
+<g transform="rotate(-9 198 230)"><rect width="398" height="466" rx="18" fill="#141015" stroke="#5b3153" stroke-width="2"/><rect x="28" y="63" width="342" height="22" rx="8" fill="#2d222e"/><rect x="28" y="120" width="342" height="78" rx="12" fill="#922d8d"/><rect x="28" y="225" width="142" height="120" rx="10" fill="#2d222e"/><rect x="190" y="230" width="180" height="12" rx="6" fill="#7f7180"/><rect x="190" y="257" width="141" height="10" rx="5" fill="#4c414d"/><rect x="190" y="283" width="112" height="10" rx="5" fill="#3b323d"/><rect x="28" y="374" width="342" height="9" rx="4" fill="#554653"/><text x="28" y="425" fill="#efa0dc" font-family="Arial" font-size="12" letter-spacing="3">WEBSITE / BUSINESS</text></g>
+<g transform="translate(61 51) rotate(6 198 230)"><rect width="398" height="466" rx="18" fill="#faf6fa" stroke="#dfc9dd" stroke-width="2"/><rect x="28" y="63" width="342" height="22" rx="8" fill="#eee5ec"/><text x="28" y="143" fill="#1c151d" font-family="Georgia,serif" font-size="30">BUILD THE</text><text x="28" y="180" fill="#1c151d" font-family="Georgia,serif" font-size="30">NEXT THING.</text><circle cx="303" cy="192" r="46" fill="#efd7e9"/><rect x="28" y="224" width="118" height="40" rx="20" fill="url(#m)"/><text x="87" y="249" text-anchor="middle" fill="#fff" font-family="Arial" font-size="12" font-weight="700">EXPLORE</text><text x="28" y="386" fill="#725f6d" font-family="Arial" font-size="12" letter-spacing="3">DESIGN / POSTER / SOCIAL</text></g>
+</g>
+<g transform="translate(78 1018)"><rect width="454" height="248" rx="14" fill="#100f15" stroke="#362b36"/><text x="28" y="45" fill="#d15cb8" font-family="Arial" font-size="13" font-weight="700" letter-spacing="4">THE STASH</text><text x="28" y="92" fill="#f2edf5" font-family="Arial" font-size="25" font-weight="800">700 pieces of creative range.</text><text x="28" y="128" fill="#f2edf5" font-family="Arial" font-size="25" font-weight="800">Ready to remix.</text><path d="M28 155H414" stroke="#3b303c"/><text x="28" y="192" fill="#8b7b88" font-family="Arial" font-size="15">350 WEBSITES • 350 SVG DESIGNS</text><text x="28" y="220" fill="#8b7b88" font-family="Arial" font-size="15">BUSINESS • EVENTS • FOOD • BEAUTY</text></g>
+<text x="78" y="1416" fill="#9d8f9e" font-family="Arial" font-size="14" letter-spacing="5">CREATOR STASH / 700</text><text x="946" y="1416" text-anchor="end" fill="#615561" font-family="Arial" font-size="12" letter-spacing="4">DEWIFY</text>
+</svg>

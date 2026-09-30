@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="/favicon.ico?v=20260920" type="image/x-icon" sizes="any">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#070707">
+  <meta name="description" content="Browse DEWIFY ebooks, creator packs, templates and digital resources.">
+  <title>DEWIFY — Products</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .products-hero{padding-bottom:34px}
+    .store-tools{position:sticky;top:10px;z-index:20;display:flex;gap:12px;align-items:center;justify-content:space-between;margin:0 auto 34px;padding:12px;border:1px solid var(--line);background:rgba(7,7,7,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+    .filter-tabs{display:flex;gap:6px;flex-wrap:wrap}
+    .filter-tab{border:1px solid var(--line);background:transparent;color:var(--dim);padding:10px 14px;font:10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+    .filter-tab:hover,.filter-tab.active{border-color:var(--text);color:var(--text);background:rgba(255,255,255,.04)}
+    .product-search{width:min(270px,42vw);border:1px solid var(--line);background:#0b0b0b;color:var(--text);padding:11px 13px;outline:none;font:12px ui-monospace,SFMono-Regular,Menlo,monospace}
+    .product-search:focus{border-color:var(--text)}
+    .catalog-section{padding-top:12px}
+    .catalog-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:18px}
+    .catalog-head h2{margin:0}
+    .catalog-count{font:10px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--dim);letter-spacing:.1em;text-transform:uppercase}
+    .product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .catalog-card{display:flex;flex-direction:column;min-width:0;border:1px solid var(--line);background:rgba(12,12,12,.78);transition:transform .2s ease,border-color .2s ease,background .2s ease}
+    .catalog-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.32);background:#101010}
+    .catalog-cover{aspect-ratio:1/1.12;overflow:hidden;background:#090909;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+    .catalog-cover img,.catalog-cover svg{width:100%;height:100%;object-fit:cover;display:block}
+    .catalog-cover-portrait{background:#f0ede4}
+    .catalog-cover-portrait-image{object-fit:contain!important;background:#f0ede4}
+    .catalog-copy{display:flex;flex:1;flex-direction:column;padding:18px}
+    .catalog-meta{display:flex;justify-content:space-between;gap:10px;color:var(--dim);font:9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.09em;text-transform:uppercase}
+    .catalog-copy h3{margin:10px 0 8px;font-size:22px;letter-spacing:-.03em}
+    .catalog-copy p{margin:0;color:var(--dim);font-size:13px;line-height:1.65}
+    .catalog-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:20px}
+    .catalog-price{font:700 16px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text)}
+    .catalog-button{white-space:nowrap}
+    .empty-state{display:none;border:1px dashed var(--line);padding:38px;text-align:center;color:var(--dim)}
+    .catalog-card.is-hidden{display:none}
+    .catalog-info{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:42px}
+    .catalog-info>div{background:#0a0a0a;padding:18px}.catalog-info span{display:block;color:var(--dim);font:9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em}.catalog-info strong{display:block;margin-top:7px;font-size:14px}
+    @media(max-width:900px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-info{grid-template-columns:1fr}.store-tools{position:static}}
+    @media(max-width:620px){.store-tools{align-items:stretch;flex-direction:column}.product-search{width:100%}.product-grid{grid-template-columns:1fr}.catalog-head{align-items:start;flex-direction:column;gap:8px}.catalog-copy h3{font-size:20px}}
+  </style>
+  <link rel="stylesheet" href="local-profile.css">
+</head>
+<body>
+<canvas id="starfield" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="DEWIFY home">DEWIFY</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="products.html" aria-current="page">Shop</a>
+      <a href="categories.html">Categories</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <span class="store-pill">DIGITAL STORE</span>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero products-hero container">
+    <p class="eyebrow">DEWIFY / DIGITAL STORE</p>
+    <h1>Pick a product.<br><span>Get to work.</span></h1>
+    <p>Browse ebooks, creator packs and practical digital resources without digging through one giant list. Filter by type or search by name.</p>
+  </section>
+
+  <section class="container catalog-section" aria-label="Product catalog">
+    <div class="store-tools">
+      <div class="filter-tabs" role="group" aria-label="Filter products">
+        <button class="filter-tab active" type="button" data-filter="all">All</button>
+        <button class="filter-tab" type="button" data-filter="ebooks">Ebooks</button>
+        <button class="filter-tab" type="button" data-filter="creator">Creator packs</button>
+      </div>
+      <input class="product-search" id="product-search" type="search" placeholder="Search products..." aria-label="Search products">
+    </div>
+
+    <div class="catalog-head">
+      <div>
+        <p class="eyebrow">CURRENT COLLECTION</p>
+        <h2>Digital products.</h2>
+      </div>
+      <span class="catalog-count" id="catalog-count">11 products</span>
+    </div>
+
+    <div class="product-grid" id="product-grid">
+      <a class="catalog-card" href="ai-money-arc.html" data-category="ebooks" data-name="ai money arc ebook ai money learning business">
+        <div class="catalog-cover catalog-cover-portrait">
+          <img class="catalog-cover-portrait-image" src="assets/ai-money-arc-cover.svg" alt="AI MONEY ARC by Marco Vex cover" loading="lazy" decoding="async">
+        </div>
+        <div class="catalog-copy">
+          <div class="catalog-meta"><span>Ebook</span><span>Drop 01</span></div>
+          <h3>AI MONEY ARC</h3>
+          <p>AI, business, skills, discipline and a 30-day implementation arc for turning knowledge into action.</p>
+          <div class="catalog-footer"><strong class="catalog-price" data-price-product="ai-money-arc">$2.99</strong><span class="button button-light catalog-button">View product ↗</span></div>
+        </div>
+      </a>
+
+
+      <a class="catalog-card" href="eboox-100.html" data-category="ebooks" data-name="eboox 100 ebooks money ai business strategy leadership digital library">
+        <div class="catalog-cover"><img src="assets/eboox-100-cover.svg" alt="EBOOX 100 cover" loading="lazy" decoding="async"></div>
+        <div class="catalog-copy"><div class="catalog-meta"><span>Ebook library</span><span>100 books</span></div><h3>EBOOX 100</h3><p>100 original ebooks across money, AI, business, strategy, sales, marketing, discipline, digital products and long-term leverage.</p><div class="catalog-footer"><strong class="catalog-price" data-price-product="eboox-100">Local price</strong><span class="button button-light catalog-button">View product ↗</span></div></div>
+      </a>
+
+
+      <a class="catalog-card" href="webble-100.html" data-category="creator" data-name="webble 100 website templates html css javascript">
+        <div class="catalog-cover"><img src="assets/webble-100-cover.svg" alt="WEBBLE 100 cover" loading="lazy" decoding="async"></div>
+        <div class="catalog-copy"><div class="catalog-meta"><span>Website pack</span><span>100 templates</span></div><h3>WEBBLE 100</h3><p>100 editable website templates with multi-page structures and inline CSS + JavaScript, built to be easy to open, edit and publish.</p><div class="catalog-footer"><strong class="catalog-price" data-price-product="webble-100">Local price</strong><span class="button button-light catalog-button">View product ↗</span></div></div>
+      </a>
+
+      <a class="catalog-card" href="webble-300.html" data-category="creator" data-name="webble 300 website templates html css javascript">
+        <div class="catalog-cover"><img src="assets/webble-300-cover.svg" alt="WEBBLE 300 cover" loading="lazy" decoding="async"></div>
+        <div class="catalog-copy"><div class="catalog-meta"><span>Website pack</span><span>300 templates</span></div><h3>WEBBLE 300</h3><p>300 editable website templates with multi-page structures and inline CSS + JavaScript, built to be easy to open, edit and publish.</p><div class="catalog-footer"><strong class="catalog-price" data-price-product="webble-300">Local price</strong><span class="button button-light catalog-button">View product ↗</span></div></div>
+      </a>
+
+      <a class="catalog-card" href="webble-500.html" data-category="creator" data-name="webble 500 website templates html css javascript">
+        <div class="catalog-cover"><img src="assets/webble-500-cover.svg" alt="WEBBLE 500 cover" loading="lazy" decoding="async"></div>
+        <div class="catalog-copy"><div class="catalog-meta"><span>Website pack</span><span>500 templates</span></div><h3>WEBBLE 500</h3><p>500 editable website templates with multi-page structures and inline CSS + JavaScript, built to be easy to open, edit and publish.</p><div class="catalog-footer"><strong class="catalog-price" data-price-product="webble-500">Local price</strong><span class="button button-light catalog-button">View product ↗</span></div></div>
+      </a>
+
+      <a class="catalog-card" href="webble-700.html" data-category="creator" data-name="webble 700 website templates html css javascript">
+        <div class="catalog-cover"><img src="assets/webble-700-cover.svg" alt="WEBBLE 700 cover" loading="lazy" decoding="async"></div>
+        <div class="catalog-copy"><div class="catalog-meta"><span>Website pack</span><span>700 templates</span></div><h3>WEBBLE 700</h3><p>700 editable website templates with multi-page structures and inline CSS + JavaScript, built to be easy to open, edit and publish.</p><div class="catalog-footer"><strong class="catalog-price" data-price-product="webble-700">Local price</strong><span class="button button-light catalog-button">View product ↗</span></div></div>
+      </a>
+
+      <a class="catalog-card" href="creator-crate-100.html" data-category="creator" data-name="creator crate 100 templates websites designs">
+        <div class="catalog-cover"><img src="assets/creator-crate-100-cover.svg" alt="CREATOR CRATE 100 cover" loading="lazy" decoding="async"></div>
+        <div class="catalog-copy"><div class="catalog-meta"><span>Creator pack</span><span>100 assets</span></div><h3>CREATOR CRATE 100</h3><p>50 self-contained website templates plus 50 editable design templates in one compact creator pack.</p><div class="catalog-footer"><strong class="catalog-price" data-price-product="creator-crate-100">Loading price…</strong><span class="button button-light catalog-button">View product ↗</span></div></div>
+      </a>
+
+      <a class="catalog-card" href="creator-vault-300.html" data-category="creator" data-name="creator vault 300 digital products resell">
+        <div class="catalog-cover"><img src="assets/creator-vault-300-cover.svg" alt="CREATOR VAULT 300 cover" loading="lazy" decoding="async"></div>
+        <div class="catalog-copy"><div class="catalog-meta"><span>Creator pack</span><span>300 products</span></div><h3>CREATOR VAULT 300</h3><p>A 300-product library for creators building, packaging and reselling digital products under the included license terms.</p><div class="catalog-footer"><strong class="catalog-price" data-price-product="creator-vault-300">$3.99</strong><span class="button button-light catalog-button">View product ↗</span></div></div>
+      </a>
+
+      <a class="catalog-card" href="creator-bundle-500.html" data-category="creator" data-name="creator bundle 500 templates websites designs">
+        <div class="catalog-cover"><img src="assets/creator-bundle-500-cover.svg" alt="CREATOR BUNDLE 500 cover" loading="lazy" decoding="async"></div>
+        <div class="catalog-copy"><div class="catalog-meta"><span>Creator pack</span><span>500 assets</span></div><h3>CREATOR BUNDLE 500</h3><p>250 self-contained website templates plus 250 editable design templates in one creator-ready bundle.</p><div class="catalog-footer"><strong class="catalog-price" data-price-product="creator-bundle-500">Loading price…</strong><span class="button button-light catalog-button">View product ↗</span></div></div>
+      </a>
+
+      <a class="catalog-card" href="creator-stash-700.html" data-category="creator" data-name="creator stash 700 templates websites svg designs">
+        <div class="catalog-cover"><img src="assets/creator-stash-700-cover.svg" alt="CREATOR STASH 700 cover" loading="lazy" decoding="async"></div>
+        <div class="catalog-copy"><div class="catalog-meta"><span>Creator pack</span><span>700 assets</span></div><h3>CREATOR STASH 700</h3><p>350 self-contained website templates plus 350 editable SVG design templates in one large stash.</p><div class="catalog-footer"><strong class="catalog-price" data-price-product="creator-stash-700">Loading price…</strong><span class="button button-light catalog-button">View product ↗</span></div></div>
+      </a>
+
+      <a class="catalog-card" href="creator-arsenal-1000.html" data-category="creator" data-name="creator arsenal 1000 templates websites designs">
+        <div class="catalog-cover"><img src="assets/creator-arsenal-1000-cover.svg" alt="CREATOR ARSENAL 1000 cover" loading="lazy" decoding="async"></div>
+        <div class="catalog-copy"><div class="catalog-meta"><span>Creator pack</span><span>1,000 assets</span></div><h3>CREATOR ARSENAL 1000</h3><p>500 self-contained website templates plus 500 editable design templates for businesses, events and more.</p><div class="catalog-footer"><strong class="catalog-price" data-price-product="creator-arsenal-1000">$7.99</strong><span class="button button-light catalog-button">View product ↗</span></div></div>
+      </a>
+    </div>
+
+    <div class="empty-state" id="empty-state">No products match that search.</div>
+
+    <div class="catalog-info" aria-label="Store information">
+      <div><span>FORMAT</span><strong>Digital downloads</strong></div>
+      <div><span>ACCESS</span><strong>Open a product page</strong></div>
+      <div><span>DELIVERY</span><strong>Instant after payment</strong></div>
+    </div>
+  </section>
+
+  <section class="section container" style="padding-bottom:80px">
+    <div class="coming-inner">
+      <div><p class="eyebrow">NEXT / DEWIFY</p><h2>More products.<br><span>Cleaner browsing.</span></h2></div>
+      <div><p>New ebooks can be added to the Ebooks category without rebuilding the page. Creator packs stay grouped separately so the store can grow without turning into a wall of cards.</p><a class="button button-light" href="categories.html">Browse categories ↗</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div><a class="brand" href="index.html">DEWIFY</a><p>Digital products, upgraded.</p></div>
+    <div class="footer-links"><a href="products.html">Shop</a><a href="categories.html">Categories</a><a href="how-it-works.html">How it works</a><a href="faq.html">FAQ</a><a href="terms.html">Terms</a><a href="refund-policy.html">Refund Policy</a><a href="privacy.html">Privacy</a></div>
+    <div class="footer-contact"><span class="eyebrow">SUPPORT</span><a href="mailto:dewifystores@gmail.com">dewifystores@gmail.com ↗</a></div>
+    <span class="copyright">© 2026 DEWIFY</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const buttons=[...document.querySelectorAll('.filter-tab')];
+  const cards=[...document.querySelectorAll('.catalog-card')];
+  const search=document.getElementById('product-search');
+  const count=document.getElementById('catalog-count');
+  const empty=document.getElementById('empty-state');
+  let filter='all';
+  function render(){
+    const q=search.value.trim().toLowerCase(); let visible=0;
+    cards.forEach(card=>{const matchFilter=filter==='all'||card.dataset.category===filter;const matchSearch=!q||card.dataset.name.includes(q);const show=matchFilter&&matchSearch;card.classList.toggle('is-hidden',!show);if(show)visible++;});
+    count.textContent=visible+' product'+(visible===1?'':'s'); empty.style.display=visible?'none':'block';
+  }
+  buttons.forEach(btn=>btn.addEventListener('click',()=>{filter=btn.dataset.filter;buttons.forEach(b=>b.classList.toggle('active',b===btn));render();}));
+  search.addEventListener('input',render); render();
+
+  const canvas=document.getElementById('starfield'); const ctx=canvas.getContext('2d'); let stars=[];
+  function resize(){canvas.width=innerWidth;canvas.height=innerHeight;stars=Array.from({length:Math.min(110,Math.floor(innerWidth/12))},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.1+.2,a:Math.random()*.55+.1}));}
+  function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);for(const s of stars){ctx.globalAlpha=s.a;ctx.fillStyle='#fff';ctx.fillRect(s.x,s.y,s.r,s.r);}requestAnimationFrame(draw);}
+  addEventListener('resize',resize,{passive:true});resize();draw();
+})();
+</script>
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js" defer></script>
+  <script src="config.js?v=20260928-1" defer></script>
+  <script src="localized-pricing.js?v=20260928-1" defer></script>
+  <script src="local-profile.js" defer></script>
+</body>
+</html>

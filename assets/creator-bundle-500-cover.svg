@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1536" role="img" aria-labelledby="title desc">
+<defs>
+<linearGradient id="v" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eee3ff"/><stop offset=".5" stop-color="#9c6aff"/><stop offset="1" stop-color="#4b209e"/></linearGradient>
+<filter id="s"><feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#000" flood-opacity=".6"/></filter>
+</defs>
+<title id="title">Creator Bundle 500</title><desc id="desc">Dark premium creator bundle with 250 website and 250 design templates.</desc>
+<rect width="1024" height="1536" fill="#08080c"/><rect x="44" y="44" width="936" height="1448" rx="12" fill="none" stroke="#403254" stroke-width="2"/>
+<text x="78" y="108" fill="#988ea4" font-family="Arial" font-size="16" letter-spacing="8">DEWIFY / DIGITAL DROP 04</text>
+<text x="78" y="166" fill="#7349c5" font-family="Arial" font-size="12" font-weight="700" letter-spacing="5">THE WORKHORSE COLLECTION</text>
+<path d="M78 190H946" stroke="#30263e"/>
+<text x="78" y="432" fill="#f5f2f8" font-family="Arial" font-size="103" font-weight="900">CREATOR</text>
+<text x="78" y="548" fill="#f5f2f8" font-family="Arial" font-size="103" font-weight="900">BUNDLE</text>
+<text x="78" y="700" fill="url(#v)" font-family="Arial" font-size="160" font-weight="900" letter-spacing="-9">500</text>
+<text x="78" y="768" fill="#b9b0c6" font-family="Arial" font-size="18" letter-spacing="4">250 WEBSITES  /  250 DESIGNS</text>
+<g transform="translate(550 840)" filter="url(#s)">
+<g transform="rotate(-8 190 230)"><rect width="375" height="460" rx="16" fill="#111117" stroke="#46375e" stroke-width="2"/><rect x="28" y="62" width="319" height="22" rx="8" fill="#292431"/><rect x="28" y="115" width="142" height="180" rx="11" fill="#7540e5"/><rect x="190" y="124" width="157" height="13" rx="6" fill="#797184"/><rect x="190" y="151" width="128" height="10" rx="5" fill="#4e4758"/><rect x="190" y="177" width="96" height="10" rx="5" fill="#3b3541"/><rect x="28" y="330" width="319" height="9" rx="4" fill="#494151"/><text x="28" y="398" fill="#cdb8f4" font-family="Arial" font-size="12" letter-spacing="3">WEBSITE / SINGLE FILE</text></g>
+<g transform="translate(74 58) rotate(7 190 230)"><rect width="375" height="460" rx="16" fill="#f8f5fc" stroke="#d0c3e4" stroke-width="2"/><rect x="28" y="62" width="319" height="22" rx="8" fill="#ebe5f2"/><text x="28" y="140" fill="#1a1620" font-family="Georgia,serif" font-size="30">MAKE IT</text><text x="28" y="178" fill="#1a1620" font-family="Georgia,serif" font-size="30">MEMORABLE.</text><rect x="28" y="218" width="118" height="40" rx="20" fill="url(#v)"/><text x="87" y="243" text-anchor="middle" fill="#fff" font-family="Arial" font-size="12" font-weight="700">PUBLISH</text><rect x="28" y="292" width="319" height="9" rx="4" fill="#d9d0e4"/><rect x="28" y="316" width="240" height="9" rx="4" fill="#e7e1eb"/><text x="28" y="392" fill="#6d6278" font-family="Arial" font-size="12" letter-spacing="3">DESIGN / SOCIAL / EVENT</text></g>
+</g>
+<g transform="translate(78 1018)"><rect width="440" height="248" rx="14" fill="#0f0f15" stroke="#2e2738"/><text x="28" y="45" fill="#8d65d5" font-family="Arial" font-size="13" font-weight="700" letter-spacing="4">THE BUNDLE</text><text x="28" y="92" fill="#f2eef6" font-family="Arial" font-size="25" font-weight="800">500 assets. One workflow.</text><text x="28" y="128" fill="#f2eef6" font-family="Arial" font-size="25" font-weight="800">Websites + designs.</text><path d="M28 155H402" stroke="#38303f"/><text x="28" y="191" fill="#807789" font-family="Arial" font-size="15">BUSINESS • CREATOR • EVENTS</text><text x="28" y="219" fill="#807789" font-family="Arial" font-size="15">FOOD • BEAUTY • PORTFOLIO • MORE</text></g>
+<text x="78" y="1416" fill="#958a9f" font-family="Arial" font-size="14" letter-spacing="5">CREATOR BUNDLE / 500</text><text x="946" y="1416" text-anchor="end" fill="#5b5364" font-family="Arial" font-size="12" letter-spacing="4">DEWIFY</text>
+</svg>

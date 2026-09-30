@@ -1,0 +1,10 @@
+# Local secrets
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+!.env.example
+
+# Wrangler / Cloudflare
+.wrangler/
+.dev.vars*

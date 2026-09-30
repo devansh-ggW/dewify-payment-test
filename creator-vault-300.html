@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="/favicon.ico?v=20260920" type="image/x-icon" sizes="any">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#070707">
+  <meta name="description" content="CREATOR VAULT 300 — 300 digital products in a resellable creator pack.">
+  <title>CREATOR VAULT 300 — DEWIFY</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .vault-page{padding:86px 0 110px;position:relative;z-index:2}
+    .vault-grid{display:grid;grid-template-columns:minmax(280px,430px) minmax(0,1fr);gap:70px;align-items:start}
+    .vault-cover{position:sticky;top:104px}
+    .vault-cover img{display:block;width:100%;aspect-ratio:2/3;object-fit:cover;border:1px solid var(--line-strong);border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.44)}
+    .vault-meta{display:flex;justify-content:space-between;gap:16px;color:var(--dim);font:9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+    .vault-main h1{margin:0;font-size:clamp(54px,7vw,96px);line-height:.82;letter-spacing:-.08em}
+    .vault-main h1 span{color:transparent;-webkit-text-stroke:1px rgba(244,242,236,.72)}
+    .vault-sub{max-width:680px;margin:28px 0 0;color:var(--muted);font-size:15px;line-height:1.75}
+    .vault-price{display:flex;align-items:end;justify-content:space-between;gap:20px;padding:24px 0;margin-top:34px;border-block:1px solid var(--line)}
+    .vault-price strong{font-size:24px;letter-spacing:-.04em}
+    .vault-status{margin-top:10px;color:var(--dim);font:9px ui-monospace,SFMono-Regular,Menlo,monospace}
+    .vault-section{margin-top:42px}
+    .vault-section h2{margin:0 0 18px;font-size:25px;letter-spacing:-.05em}
+    .vault-list{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--line);background:var(--line)}
+    .vault-list div{background:rgba(12,12,12,.86);padding:16px}
+    .vault-list span{display:block;color:var(--dim);font:8px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}
+    .vault-list strong{display:block;margin-top:12px;font-size:12px;letter-spacing:.02em}
+    .vault-note{padding:20px;border:1px solid var(--line-strong);background:rgba(255,255,255,.035);color:var(--muted);font-size:11px;line-height:1.7}
+    .success-panel{position:fixed;inset:50% auto auto 50%;transform:translate(-50%,-50%);z-index:71;width:min(560px,calc(100% - 24px));padding:30px;background:#0c0c0c;border:1px solid var(--line-strong);box-shadow:var(--shadow);display:none}
+    .modal.is-open .success-panel{display:block}
+    @media(max-width:800px){.vault-grid{grid-template-columns:1fr;gap:38px}.vault-cover{position:static;max-width:390px;margin:0 auto}.vault-list{grid-template-columns:1fr}.vault-price{align-items:stretch;flex-direction:column}}
+  
+    .download-locked{opacity:.72}
+    .download-locked .is-download-locked,.download-locked a[aria-disabled="true"]{background:#6a6a6a!important;color:#d8d8d8!important;border-color:#6a6a6a!important;cursor:not-allowed!important;pointer-events:auto}
+</style>
+  <link rel="stylesheet" href="local-profile.css">
+</head>
+<body>
+<canvas id="starfield" aria-hidden="true"></canvas>
+<header class="site-header"><div class="container nav"><a class="brand" href="index.html">DEWIFY</a><nav class="nav-links"><a href="products.html">Learn</a><a href="index.html#mindset">Mindset</a><a href="index.html#faq">FAQ</a></nav><span class="store-pill">DROP 03</span></div></header>
+
+<main class="vault-page">
+  <div class="container vault-grid">
+    <div class="vault-cover"><img src="assets/creator-vault-300-cover.svg" alt="CREATOR VAULT 300 digital product cover"></div>
+
+    <div class="vault-main">
+      <div class="vault-meta"><span>DEWIFY / DIGITAL PRODUCTS</span><span>DROP 03</span></div>
+      <h1>CREATOR<br><span>VAULT 300.</span></h1>
+      <p class="vault-sub">A 300-product digital pack for creators who want a ready-made library to customize, package and resell in line with the included license terms.</p>
+
+      <div class="vault-price">
+        <div>
+          <strong id="productPrice">$3.99</strong>
+          <div class="vault-status" id="checkoutStatus">Loading local price &amp; secure checkout…</div>
+        </div>
+        <button class="button button-light" id="buyButton" type="button">Buy CREATOR VAULT 300 ↗</button>
+      </div>
+
+      <div class="purchase-download-bar download-locked" id="downloadBar">
+        <div>
+          <span id="downloadStateLabel">DOWNLOAD LOCKED</span>
+          <strong id="downloadStateTitle">Pay to unlock your download.</strong>
+          <p id="downloadStateCopy">Complete your purchase to unlock the CREATOR VAULT 300 ZIP download.</p>
+        </div>
+        <a class="button button-light" id="downloadPersistent" href="#" download="CREATOR VAULT 300.zip" download="CREATOR VAULT 300.zip" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">Pay to unlock download</a>
+      </div>
+
+      <section class="vault-section">
+        <h2>What's inside</h2>
+        <div class="vault-list">
+          <div><span>01</span><strong>300 DIGITAL PRODUCTS</strong></div>
+          <div><span>02</span><strong>RESELLABLE PRODUCT PACK</strong></div>
+          <div><span>03</span><strong>READY-TO-CUSTOMIZE LIBRARY</strong></div>
+          <div><span>04</span><strong>INSTANT ZIP DELIVERY</strong></div>
+        </div>
+      </section>
+
+      <section class="vault-section">
+        <h2>Built for creators</h2>
+        <div class="vault-note">
+          Start with the included products, customize the parts that need your brand voice, package your offers, and build your own storefront or content around them.
+        </div>
+      </section>
+
+      <section class="vault-section">
+        <h2>Resale note</h2>
+        <div class="vault-note">
+          Resale rights depend on the license included with the pack. Review the actual license terms inside the ZIP before listing, transferring, or modifying any asset.
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="footer"><div class="container footer-inner"><div><a class="brand" href="index.html">DEWIFY</a><p>Learn. Build. Repeat.</p></div><div class="footer-links"><a href="products.html">Learn</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund-policy.html">Refund Policy</a></div><div class="footer-contact"><span class="eyebrow">SUPPORT</span><a href="mailto:dewifystores@gmail.com">dewifystores@gmail.com ↗</a></div><span class="copyright">© 2026 DEWIFY</span></div></footer>
+
+<div class="modal" id="successModal" aria-hidden="true"><div class="scrim"></div><div class="success-panel">
+  <p class="eyebrow">PAYMENT CONFIRMED</p>
+  <h2>You're in.</h2>
+  <p class="success-lead">Your download is ready.</p>
+  <div class="success-meta"><div><span>TRANSACTION</span><strong id="successTransaction">—</strong></div><div><span>PRODUCT</span><strong>CREATOR VAULT 300</strong></div></div>
+  <div class="success-actions"><a class="button button-light is-download-locked" id="downloadVault" href="#" download="CREATOR VAULT 300.zip" aria-disabled="true" tabindex="-1" download="CREATOR VAULT 300.zip" target="_blank" rel="noopener">Download CREATOR VAULT 300 ↗</a><button class="button button-ghost" id="closeSuccess" type="button">Close</button></div>
+</div></div>
+
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js" defer></script>
+<script src="config.js?v=20260924-11" defer></script>
+<script src="stars.js?v=20260920-4" defer></script>
+<script src="creator-vault-300.js?v=20260920-6" defer></script>
+  <script src="local-profile.js" defer></script>
+</body>
+</html>

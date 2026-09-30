@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1536">
+<defs>
+  <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#eadfff"/><stop offset=".45" stop-color="#9c6cff"/><stop offset="1" stop-color="#5b2bbd"/>
+  </linearGradient>
+  <pattern id="grain" width="32" height="32" patternUnits="userSpaceOnUse">
+    <circle cx="7" cy="9" r=".7" fill="#fff" opacity=".035"/><circle cx="23" cy="22" r=".6" fill="#fff" opacity=".025"/>
+  </pattern>
+</defs>
+<rect width="1024" height="1536" fill="#08080a"/>
+<rect width="1024" height="1536" fill="url(#grain)"/>
+<rect x="52" y="52" width="920" height="1432" fill="none" stroke="#6540b6" stroke-opacity=".9"/>
+<text x="512" y="128" text-anchor="middle" fill="#eee9df" font-family="Arial,Helvetica,sans-serif" font-size="18" letter-spacing="10">DEWIFY / DIGITAL PRODUCTS</text>
+<line x1="512" y1="155" x2="512" y2="220" stroke="#7548cf" stroke-width="2"/>
+<text x="512" y="420" text-anchor="middle" fill="#f2eee5" font-family="Georgia,serif" font-size="86" letter-spacing="8">CREATOR</text>
+<text x="512" y="570" text-anchor="middle" fill="url(#purple)" font-family="Georgia,serif" font-size="132" letter-spacing="10">VAULT</text>
+<text x="512" y="820" text-anchor="middle" fill="#f4f0e8" font-family="Arial,Helvetica,sans-serif" font-size="205" font-weight="700" letter-spacing="-8">300</text>
+<text x="512" y="900" text-anchor="middle" fill="#bfa9ee" font-family="Arial,Helvetica,sans-serif" font-size="18" letter-spacing="7">DIGITAL PRODUCTS / RESELLABLE PACK</text>
+<path d="M300 1022h424M350 1070h324M400 1118h224" stroke="#7548cf" stroke-width="2" stroke-opacity=".75"/>
+<text x="512" y="1305" text-anchor="middle" fill="#e7e0d3" font-family="Arial,Helvetica,sans-serif" font-size="16" letter-spacing="8">BUILD / PACKAGE / CREATE</text>
+<text x="512" y="1380" text-anchor="middle" fill="url(#purple)" font-family="Arial,Helvetica,sans-serif" font-size="20" letter-spacing="8">CREATOR VAULT 300</text>
+</svg>

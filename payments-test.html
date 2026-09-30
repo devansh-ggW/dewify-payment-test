@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dewify Payment Test</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .payment-test-wrap{max-width:860px;margin:120px auto 80px;padding:24px}
+    .payment-test-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .payment-test-card{border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:22px;background:rgba(255,255,255,.035)}
+    .payment-test-card h2{margin:0 0 8px}
+    .payment-test-card p{opacity:.72;line-height:1.55}
+    .payment-test-card input{width:100%;box-sizing:border-box;margin:8px 0;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0b0b0d;color:inherit}
+    .payment-test-card button{width:100%;margin-top:10px;padding:12px 14px;border:0;border-radius:10px;cursor:pointer}
+    #payment-test-status{margin-top:18px;padding:14px;border-radius:12px;background:rgba(255,255,255,.05);white-space:pre-wrap}
+    @media (max-width:720px){.payment-test-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="payment-test-wrap">
+    <p style="opacity:.65">Dewify / Payment Test</p>
+    <h1>Razorpay + Stripe</h1>
+    <p style="opacity:.72">This page is isolated from the normal Dewify buying flow. It talks only to the Cloudflare Worker configured below.</p>
+
+    <div class="payment-test-card">
+      <label for="api-base">Cloudflare Worker URL</label>
+      <input id="api-base" placeholder="https://your-worker.your-subdomain.workers.dev">
+      <label for="email">Test customer email</label>
+      <input id="email" type="email" placeholder="you@example.com">
+    </div>
+
+    <div class="payment-test-grid">
+      <section class="payment-test-card">
+        <h2>Razorpay</h2>
+        <p>Create a server-side Razorpay Order, open Checkout, then verify the returned payment signature through the Worker.</p>
+        <label for="rzp-amount">Amount in INR</label>
+        <input id="rzp-amount" type="number" min="1" step="1" value="10">
+        <button id="rzp-buy" type="button">Test Razorpay</button>
+      </section>
+
+      <section class="payment-test-card">
+        <h2>Stripe</h2>
+        <p>Enter an existing Stripe one-time Price ID from your test account. The Worker creates the Checkout Session and redirects you.</p>
+        <label for="stripe-price">Stripe Price ID</label>
+        <input id="stripe-price" placeholder="price_...">
+        <label for="stripe-qty">Quantity</label>
+        <input id="stripe-qty" type="number" min="1" max="100" step="1" value="1">
+        <button id="stripe-buy" type="button">Test Stripe</button>
+      </section>
+    </div>
+
+    <div id="payment-test-status">Ready.</div>
+  </main>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="payments-test.js"></script>
+</body>
+</html>

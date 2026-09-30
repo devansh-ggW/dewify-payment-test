@@ -1,0 +1,28 @@
+/* DEWIFY — lightweight product-image light patches */
+.shop { position:relative; isolation:isolate; }
+.shop .section-heading,
+.shop .filters,
+.shop .product-grid { position:relative; z-index:2; }
+
+/* Soft local illumination behind product images — intentionally no blur filters. */
+.product-visual { background:#141414 !important; }
+.product-visual::after {
+  z-index:0 !important; opacity:.98;
+  background:radial-gradient(circle at 50% 46%,rgba(255,222,123,.24) 0 8%,rgba(255,219,112,.11) 24%,transparent 58%),radial-gradient(circle at 82% 18%,rgba(255,246,196,.13),transparent 32%) !important;
+}
+.product-card:nth-child(3n+2) .product-visual::after {
+  background:radial-gradient(circle at 35% 55%,rgba(255,237,174,.19) 0 9%,rgba(255,222,110,.075) 27%,transparent 59%),radial-gradient(circle at 78% 24%,rgba(255,250,220,.1),transparent 30%) !important;
+}
+.product-card:nth-child(3n) .product-visual::after {
+  background:radial-gradient(circle at 62% 40%,rgba(255,211,89,.22) 0 8%,rgba(255,214,91,.075) 26%,transparent 57%),radial-gradient(circle at 20% 22%,rgba(255,246,196,.1),transparent 32%) !important;
+}
+.product-card-image,
+.product-visual.has-product-image img {
+  position:absolute !important; left:4% !important; top:4% !important;
+  width:92% !important; height:92% !important; z-index:2 !important;
+  border-radius:17px !important;
+}
+.product-tag { z-index:5 !important; }
+@media (max-width:760px) {
+  .product-card-image,.product-visual.has-product-image img { left:5% !important; top:5% !important; width:90% !important; height:90% !important; border-radius:14px !important; }
+}
