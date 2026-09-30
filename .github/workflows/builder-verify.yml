@@ -13,9 +13,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check JavaScript syntax
         run: |
-          node --check builder.js
+          node --check builder-core.js
+          node --check builder-app.js
+          node --check builder-export-v2.js
           node --check accounts.js
-          node --check builder-export.js
           node --check scripts/verify_builder.mjs
       - name: Run builder assertions
         run: node scripts/verify_builder.mjs
