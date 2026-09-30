@@ -16,7 +16,7 @@ jobs:
           node --check builder-core.js
           node --check builder-app.js
           node --check builder-export-v2.js
-          node --check accounts.js
+          node --check builder-stars.js
           node --check scripts/verify_builder.mjs
       - name: Run builder assertions
         run: node scripts/verify_builder.mjs
