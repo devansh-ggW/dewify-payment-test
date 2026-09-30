@@ -18,6 +18,7 @@ assert.equal(builder.includes('"/health"'), true, "Payment Worker health check m
 assert.equal(builder.includes("https://cdn.simpleicons.org/razorpay"), true, "Razorpay provider mark missing");
 assert.equal(builder.includes("https://cdn.simpleicons.org/stripe"), true, "Stripe provider mark missing");
 assert.equal(builder.includes('STORE_PREFIX+":"+accountId()'), true, "Builder workspace is not account-scoped");
+assert.equal(builder.includes("function scopedFileKey"), true, "IndexedDB product files are not account-scoped");
 assert.equal(accounts.includes("dewify:browser-accounts:v1"), true, "Browser accounts storage missing");
 assert.equal(accounts.includes("activeId"), true, "Active account switching missing");
 assert.equal(html.includes("builder.css"), true, "Builder stylesheet missing");
