@@ -15,7 +15,7 @@ window.DEWIFY_CONFIG = {
       priceId: "pri_01m3pe35wzenwgmncw0e11cf14",
       basePriceUsd: null,
       displayPrice: "Local price",
-      downloadUrl: "EBOOX%20100.zip",
+      downloadUrl: "https://github.com/devansh-ggW/Dewify-Ecommerce/raw/refs/heads/main/EBOOX%20100.zip",
       image: "assets/eboox-100-cover.svg",
       description: "100 original ebooks across money, AI, business, sales, marketing, opportunity, discipline, digital products, leadership and long-term leverage.",
       highlights: ["100 original ebook PDFs","Ten-domain private library","Original frameworks and exercises","7-day and 30-day implementation plans","Master library index included","Instant ZIP delivery"]
@@ -31,7 +31,7 @@ window.DEWIFY_CONFIG = {
       priceId: "pri_01m3pjh6bmg16rej2dkxsjqmqt",
       basePriceUsd: null,
       displayPrice: "Local price",
-      downloadUrl: "WEBBLE%20100.zip",
+      downloadUrl: "https://github.com/devansh-ggW/Dewify-Ecommerce/raw/refs/heads/main/WEBBLE%20100.zip",
       image: "assets/webble-100-cover.svg",
       description: "100 editable website templates with multiple pages, responsive layouts, and CSS + JavaScript kept inside each HTML file.",
       highlights: ["100 website templates","Multiple-page website structures","CSS + JavaScript inline in every HTML file","Responsive layouts across varied industries","No external build tools required","Instant ZIP delivery"]
@@ -47,7 +47,7 @@ window.DEWIFY_CONFIG = {
       priceId: "pri_01m3pjn21c78am7wvtkspsar9f",
       basePriceUsd: null,
       displayPrice: "Local price",
-      downloadUrl: "WEBBLE%20300.zip",
+      downloadUrl: "https://github.com/devansh-ggW/Dewify-Ecommerce/raw/refs/heads/main/WEBBLE%20300.zip",
       image: "assets/webble-300-cover.svg",
       description: "300 editable website templates with multiple pages, responsive layouts, and CSS + JavaScript kept inside each HTML file.",
       highlights: ["300 website templates","Multiple-page website structures","CSS + JavaScript inline in every HTML file","Responsive layouts across varied industries","No external build tools required","Instant ZIP delivery"]
@@ -63,7 +63,7 @@ window.DEWIFY_CONFIG = {
       priceId: "pri_01m3pjq4wqepk6h6r54ak1cpb5",
       basePriceUsd: null,
       displayPrice: "Local price",
-      downloadUrl: "WEBBLE%20500.zip",
+      downloadUrl: "https://github.com/devansh-ggW/Dewify-Ecommerce/raw/refs/heads/main/WEBBLE%20500.zip",
       image: "assets/webble-500-cover.svg",
       description: "500 editable website templates with multiple pages, responsive layouts, and CSS + JavaScript kept inside each HTML file.",
       highlights: ["500 website templates","Multiple-page website structures","CSS + JavaScript inline in every HTML file","Responsive layouts across varied industries","No external build tools required","Instant ZIP delivery"]
@@ -79,7 +79,7 @@ window.DEWIFY_CONFIG = {
       priceId: "pri_01m3pjseg6p11rte8cxwza61jk",
       basePriceUsd: null,
       displayPrice: "Local price",
-      downloadUrl: "WEBBLE%20700.zip",
+      downloadUrl: "https://github.com/devansh-ggW/Dewify-Ecommerce/raw/refs/heads/main/WEBBLE%20700.zip",
       image: "assets/webble-700-cover.svg",
       description: "700 editable website templates with multiple pages, responsive layouts, and CSS + JavaScript kept inside each HTML file.",
       highlights: ["700 website templates","Multiple-page website structures","CSS + JavaScript inline in every HTML file","Responsive layouts across varied industries","No external build tools required","Instant ZIP delivery"]
@@ -94,7 +94,7 @@ window.DEWIFY_CONFIG = {
       priceId: "pri_01m2yq2yg9pfdt2h1zt1y6gt59",
       basePriceUsd: 2.99,
       displayPrice: "$2.99",
-      downloadUrl: "AI%20MONEY%20ARC.zip",
+      downloadUrl: "https://github.com/devansh-ggW/Dewify-Ecommerce/raw/refs/heads/main/AI%20MONEY%20ARC.zip",
       image: "assets/ai-money-arc-cover.svg",
       description: "A practical guide to learning AI, building real skills, understanding business, and turning ideas into action.",
       highlights: ["140-page premium ebook","AI + business fundamentals","30-day implementation arc","Discipline and execution system","Prompt Vault companion included in the same ZIP"]
@@ -110,7 +110,7 @@ window.DEWIFY_CONFIG = {
       priceId: "pri_01m39m6ajene2ch68yskfkftzm",
       basePriceUsd: null,
       displayPrice: "Local price",
-      downloadUrl: "CREATOR_CRATE_100.zip",
+      downloadUrl: "https://github.com/devansh-ggW/Dewify-Ecommerce/raw/refs/heads/main/CREATOR_CRATE_100.zip",
       image: "assets/creator-crate-100-cover.svg",
       description: "A compact creator crate with 100 editable templates: 50 standalone website templates and 50 editable design templates.",
       highlights: ["50 single-file website templates","50 editable design templates","HTML + CSS + JavaScript included in website files","Business, events, celebrations, food, beauty and more","Instant digital ZIP delivery"]
@@ -125,7 +125,7 @@ window.DEWIFY_CONFIG = {
       priceId: "pri_01m2zmsr7t1nf6a2d8ydz0qxsz",
       basePriceUsd: 3.99,
       displayPrice: "$3.99",
-      downloadUrl: "CREATOR%20VAULT%20300.zip",
+      downloadUrl: "https://github.com/devansh-ggW/Dewify-Ecommerce/raw/refs/heads/main/CREATOR%20VAULT%20300.zip",
       image: "assets/creator-vault-300-cover.svg",
       description: "A 300-product digital pack designed for creators who want a ready-made library of digital products to customize, package and resell where permitted by the included license terms.",
       highlights: ["300 digital product assets","Resellable product pack","Ready-to-customize library","Instant ZIP delivery","Review included license terms before resale"]
@@ -141,7 +141,7 @@ window.DEWIFY_CONFIG = {
       priceId: "pri_01m39k067cwm6sfv1ygzzdrcjq",
       basePriceUsd: null,
       displayPrice: "Local price",
-      downloadUrl: "CREATOR_BUNDLE_500.zip",
+      downloadUrl: "https://github.com/devansh-ggW/Dewify-Ecommerce/raw/refs/heads/main/CREATOR_BUNDLE_500.zip",
       image: "assets/creator-bundle-500-cover.svg",
       description: "A creator-ready bundle of 500 editable templates: 250 standalone website templates and 250 editable design templates for businesses, events, celebrations, food, beauty and more.",
       highlights: ["250 single-file website templates","250 editable design templates","HTML + CSS + JavaScript included in website files","Business, event, celebration, food and beauty categories","Instant digital ZIP delivery"]
@@ -157,7 +157,7 @@ window.DEWIFY_CONFIG = {
       priceId: "pri_01m39m9dxebwxnhrqpcmmtgck5",
       basePriceUsd: null,
       displayPrice: "Local price",
-      downloadUrl: "CREATOR_STASH_700.zip",
+      downloadUrl: "https://github.com/devansh-ggW/Dewify-Ecommerce/raw/refs/heads/main/CREATOR_STASH_700.zip",
       image: "assets/creator-stash-700-cover.svg",
       description: "A large creator stash with 700 templates: 350 single-file website templates and 350 editable SVG design templates across business, weddings, celebrations, food, beauty, events and more.",
       highlights: ["350 single-file website templates","350 editable SVG design templates","No frameworks, npm or build process for website templates","Responsive websites with embedded CSS and JavaScript","Instant digital ZIP delivery"]
@@ -173,7 +173,7 @@ window.DEWIFY_CONFIG = {
       priceId: "pri_01m39gxn8k1ytp2efs880wm899",
       basePriceUsd: 7.99,
       displayPrice: "$7.99",
-      downloadUrl: "dewify-creator-arsenal-8a9b630b156d3088c2eb058559f63d18aae70c72.zip",
+      downloadUrl: "https://github.com/devansh-ggW/Dewify-Ecommerce/raw/refs/heads/main/dewify-creator-arsenal-8a9b630b156d3088c2eb058559f63d18aae70c72.zip",
       image: "assets/creator-arsenal-1000-cover.svg",
       description: "A creator-ready arsenal of 1,000 editable templates for businesses, weddings, celebrations, food, beauty, events and more.",
       highlights: ["500 single-file website templates","500 editable design templates","HTML + CSS + JavaScript included in every website file","Business, weddings, celebrations, food, beauty and event categories","Instant digital ZIP delivery"]
