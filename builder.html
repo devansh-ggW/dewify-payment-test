@@ -1,22 +1,66 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#050505"><meta name="description" content="DEWIFY browser-local website builder">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23050505'/><circle cx='18' cy='16' r='3' fill='%23f4cc62'/><circle cx='45' cy='32' r='2' fill='%23f4cc62'/><path d='M17 43h30' stroke='%23f4cc62' stroke-width='4'/><path d='M25 12v30' stroke='%23f4cc62' stroke-width='3'/></svg>">
-<title>DEWIFY — Builder</title><link rel="stylesheet" href="builder.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070707"><meta name="description" content="DEWIFY store builder">
+<link rel="icon" href="favicon.svg"><title>DEWIFY — Store Builder</title>
+<link rel="stylesheet" href="builder.css">
 </head>
-<body data-page="home">
+<body>
 <canvas id="builder-stars" aria-hidden="true"></canvas>
-<div class="builder-app">
-<header class="builder-header">
-<a class="builder-brand" href="builder.html" aria-label="DEWIFY Builder"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>DEWIFY</span><b>BUILDER</b></a>
-<nav class="builder-nav" aria-label="Builder navigation">
-<a data-nav="home" href="builder.html">Overview</a><a data-nav="setup" href="builder-setup.html">Setup</a><a data-nav="templates" href="builder-templates.html">Templates</a><a data-nav="editor" href="builder-editor.html">Editor</a><a data-nav="products" href="builder-products.html">Products</a><a data-nav="policies" href="builder-policies.html">Policies</a><a data-nav="payment" href="builder-payment.html">Checkout</a><a data-nav="publish" href="builder-publish.html">Publish</a>
-</nav>
-<div class="builder-actions"><span id="save-state" class="save-state" aria-live="polite">Autosaved</span><button id="global-save" class="header-action" type="button" data-action="save">Save</button><button id="global-download" class="header-action header-download" type="button" data-action="download">Download ZIP</button><span id="builder-account-slot"></span></div>
+<header class="site-header builder-header">
+  <div class="builder-header-inner">
+    <a class="brand" href="index.html" aria-label="DEWIFY">DEWIFY</a>
+    <button class="button button-light top-download" type="button" data-action="download">Download ZIP <span>↘</span></button>
+    <div class="header-status" aria-live="polite"><span class="status-dot"></span><span id="save-state">Auto-saved</span></div>
+  </div>
 </header>
-<main id="builder-root" class="builder-root"></main>
-</div>
-<script src="builder-core.js"></script><script src="builder-stars.js"></script><script src="builder-export-v2.js"></script><script src="builder-app.js"></script><script src="accounts.js"></script>
+<main class="container builder-shell">
+  <section class="builder-intro">
+    <p class="eyebrow">DEWIFY / STORE BUILDER</p>
+    <h1>Build your<br><span>store.</span></h1>
+    <p class="builder-lead">Set the basics, choose a look, add your catalog, pick a checkout, and export the whole store as a ZIP.</p>
+  </section>
+
+  <section class="builder-panel">
+    <div class="section-head"><div><p class="eyebrow">01 / STORE INFO</p><h2>Just the essentials.</h2></div><span class="soft-status" id="field-status">Ready</span></div>
+    <div class="field-grid">
+      <label class="form-field"><span>Store name</span><input id="store-name" autocomplete="organization" placeholder="Your Store"></label>
+      <label class="form-field"><span>Email</span><input id="store-email" type="email" autocomplete="email" placeholder="you@example.com"></label>
+      <label class="form-field"><span>Phone number</span><input id="store-phone" type="tel" autocomplete="tel" placeholder="+91 ..."></label>
+      <label class="form-field"><span>Location</span><input id="store-location" placeholder="City, Country"></label>
+      <label class="form-field wide"><span>Store info</span><textarea id="store-description" rows="3" placeholder="A short description of what you sell."></textarea></label>
+      <label class="form-field"><span>Domain (optional)</span><input id="store-domain" placeholder="yourstore.com"></label>
+      <label class="form-field"><span>Currency</span><select id="store-currency"><option value="INR">INR — Indian Rupee</option><option value="USD">USD — US Dollar</option><option value="EUR">EUR — Euro</option><option value="GBP">GBP — Pound Sterling</option></select></label>
+    </div>
+    <div class="action-row"><div><p class="action-kicker">LOOK</p><strong id="selected-template-name">Noir Dew</strong><span id="selected-template-desc">The closest match to the DEWIFY storefront.</span></div><button class="button" type="button" data-action="templates">Browse templates <span>↗</span></button></div>
+  </section>
+
+  <section class="builder-panel">
+    <div class="section-head"><div><p class="eyebrow">02 / CATALOG</p><h2>Add what you sell.</h2></div><button class="button button-light" type="button" data-action="catalog">Open catalog <span>+</span></button></div>
+    <div id="product-list" class="product-list"></div>
+  </section>
+
+  <section class="builder-panel">
+    <div class="section-head"><div><p class="eyebrow">03 / PAGES</p><h2>Useful by default.</h2></div><span class="soft-status">Home · Catalog · Privacy · Terms</span></div>
+    <div class="page-list">
+      <div class="page-row"><b>01</b><span>Home</span><small>Store intro + featured products</small></div>
+      <div class="page-row"><b>02</b><span>Catalog</span><small>Full product catalog linked from the nav</small></div>
+      <div class="page-row"><b>03</b><span>Privacy Policy</span><small>Generated from your store info</small></div>
+      <div class="page-row"><b>04</b><span>Terms & Conditions</span><small>Generated from your store info</small></div>
+      <label class="page-row optional"><input id="cookies-enabled" type="checkbox"><b>05–06</b><span>Cookie + Cookie Policy</span><small>Enable these when your store actually needs them</small></label>
+    </div>
+  </section>
+
+  <section class="builder-panel payment-panel">
+    <div class="section-head"><div><p class="eyebrow">04 / CHECKOUT</p><h2>Choose how customers pay.</h2><p class="section-note">Dewify does not charge the store owner here. This only chooses the checkout brand shown in the exported store.</p></div></div>
+    <div class="payment-grid" id="payment-grid">
+      <button class="payment-choice selected" type="button" data-payment="razorpay"><span class="payment-icon">R</span><span><strong>Razorpay</strong><small>Hosted payment links</small></span><em>RZP</em></button>
+      <button class="payment-choice" type="button" data-payment="stripe"><span class="payment-icon">S</span><span><strong>Stripe</strong><small>Hosted payment links</small></span><em>STR</em></button>
+      <button class="payment-choice" type="button" data-payment="custom"><span class="payment-icon custom">↗</span><span><strong>Custom</strong><small>Your own checkout link</small></span><em>LINK</em></button>
+    </div>
+  </section>
+</main>
+<div id="modal" class="modal" aria-hidden="true"></div><div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="builder-core.js"></script><script src="builder-stars.js"></script><script src="builder-export-v2.js"></script><script src="builder-app.js"></script>
 </body></html>
