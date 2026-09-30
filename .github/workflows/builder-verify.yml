@@ -1,0 +1,19 @@
+name: Verify Dewify builder
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify-builder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: |
+          node --check builder.js
+          node --check accounts.js
+      - name: Run builder assertions
+        run: node scripts/verify_builder.mjs
