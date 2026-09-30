@@ -87,6 +87,16 @@ function renderSetup(){
  $("#wizard-back").onclick=()=>{if(setupPage>0){setupPage--;sessionStorage.setItem("dewify-setup-page",String(setupPage));renderSetup()}};
  $("#wizard-next").onclick=()=>{if(setupPage===4){nextPage("builder-templates.html");return}const missing=setupScreens[setupPage].fields.filter(f=>String(state().store[f[0]]||"").trim()==="");if(missing.length){const first=$("[data-field='"+missing[0][0]+"']");if(first)first.focus();return}setupPage++;sessionStorage.setItem("dewify-setup-page",String(setupPage));renderSetup()};
 }
+function miniCard(t){
+ const v=t.variant||"editorial";
+ const shot=v==="bento"?"<div class='shot-bento'><i></i><i></i><i></i><i></i></div>":
+   v==="split"?"<div class='shot-split'><b></b><i></i><i></i></div>":
+   v==="catalog"?"<div class='shot-catalog'><i></i><i></i><i></i><i></i><i></i></div>":
+   v==="orbit"?"<div class='shot-orbit'><b></b><i></i><i></i><i></i></div>":
+   v==="story"?"<div class='shot-story'><i></i><i></i><i></i></div>":
+   "<div class='shot-editorial'><b></b><i></i><i></i></div>";
+ return "<article class='tpl-card'><div class='tpl-shot variant-"+esc(v)+"'><span class='tpl-number'>"+String(t.number).padStart(2,"0")+"</span><span class='tpl-label'>LIVE GLIMPSE</span>"+shot+"<strong>"+esc(t.niche)+"</strong><small>"+esc(t.style)+" · "+esc(t.layout)+"</small></div><div class='tpl-card-copy'><div class='tpl-meta'><span>"+esc(t.niche)+"</span><span>"+esc(t.style)+"</span></div><h3>"+esc(t.name)+"</h3><p>See the structure before you choose it.</p><div class='tpl-actions'><button type='button' data-template-use='"+t.id+"' class='button button-gold'>Use template</button><button type='button' data-template-download='"+t.id+"' class='button'>Download</button></div></div></article>";
+}
 function renderTemplates(){
  const ts=getTemplates(),categories=["All"].concat(Array.from(new Set(ts.map(t=>t.niche)))),q=String(sessionStorage.getItem("dewify-template-q")||""),cat=sessionStorage.getItem("dewify-template-cat")||"All";
  root.innerHTML=layout("Browse before you build.","DEWIFY / TEMPLATES","Pick a direction visually first. Every template keeps the black + golden-star system so the brand stays recognisable.",
