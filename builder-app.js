@@ -14,20 +14,60 @@ function field(name,label,type,value,options=[],hint=""){const v=String(value??"
  return "<label class='form-field'><span>"+esc(label)+"</span>"+control+(hint?"<small>"+esc(hint)+"</small>":"")+"</label>"
 }
 function setField(name,value){patch(s=>{if(name in s.store)s.store[name]=value;else if(name==="domain")s.domain=value});saveMessage();refreshConditional()}
-function bindFields(scope=document){$$("[data-field]",scope).forEach(el=>{el.addEventListener("input",()=>{let v=el.value;if(el.type==="color"){const c=el.parentElement.querySelector("code");if(c)c.textContent=v}setField(el.dataset.field,v)});el.addEventListener("change",()=>setField(el.dataset.field,el.value))})}
-function refreshConditional(){const r=readiness();const e=$("#ready-copy");if(e)e.textContent=r.ready?"Everything needed for export is ready.":r.missing.length+" item"+(r.missing.length===1?"":"s")+" still needed: "+r.missing.join(", ");navReady()}
-function nextPage(url){location.href=url}
-function miniCard(t){return "<article class='tpl-card'><div class='tpl-visual style-"+t.mark.toLowerCase()+"'><span class='tpl-number'>"+String(t.number).padStart(2,"0")+"</span><span class='tpl-star'>✦</span><div class='tpl-lines'><i></i><i></i><i></i></div><strong>"+esc(t.name)+"</strong><small>"+esc(t.niche)+" · "+esc(t.style)+"</small></div><div class='tpl-card-copy'><div><span>"+esc(t.niche)+"</span><span>"+esc(t.layout)+"</span></div><h3>"+esc(t.name)+"</h3><p>Black canvas, restrained motion and golden detail.</p><div class='tpl-actions'><button type='button' data-template-preview='"+t.id+"'>Preview</button><button class='button button-gold' type='button' data-template-use='"+t.id+"'>Use</button></div></div></article>"}
-function previewTemplate(id){const t=templateById(id);if(!t)return;let modal=$("#template-preview-modal");if(!modal){document.body.insertAdjacentHTML("beforeend","<div id='template-preview-modal' class='modal'><div class='modal-backdrop' data-preview-close></div><section class='preview-panel' role='dialog' aria-modal='true'><header><div><p class='eyebrow'>TEMPLATE PREVIEW</p><h2 id='preview-name'></h2></div><div><button type='button' class='button button-gold' id='preview-use'>Use template</button><button type='button' class='icon-button' data-preview-close aria-label='Close preview'>×</button></div></header><iframe id='preview-frame' title='Template preview'></iframe></section></div>");modal=$("#template-preview-modal")}
-$("#preview-name",modal).textContent=t.name;$("#preview-frame",modal).srcdoc=templateDoc(t,state(),true);$("#preview-use",modal).onclick=()=>{patch(s=>s.templateId=t.id);saveMessage();modal.classList.remove("open");render();};$$("[data-preview-close]",modal).forEach(b=>b.onclick=()=>modal.classList.remove("open"));modal.classList.add("open")
+function bindFields(){}
+let downloadBusy=false;
+function setSaveStatus(text){
+ const e=$("#save-state");
+ if(e){e.textContent=text;window.clearTimeout(setSaveStatus.timer);setSaveStatus.timer=window.setTimeout(()=>e.textContent="Autosaved",1800)}
 }
+async function handleDownload(fn,id){
+ if(downloadBusy)return;
+ downloadBusy=true;
+ const buttons=$("[data-action='download'],[data-template-download]");
+ buttons.forEach(b=>{b.disabled=true;b.dataset.originalText=b.textContent;b.textContent="Building…"});
+ try{
+   if(typeof fn!=="function")throw new Error("Export module is not loaded.");
+   await fn(id);
+   setSaveStatus("Download started");
+ }catch(e){
+   console.error(e);setSaveStatus("Download failed");alert(e&&e.message?e.message:"Could not build the ZIP.");
+ }finally{
+   buttons.forEach(b=>{b.disabled=false;if(b.dataset.originalText)b.textContent=b.dataset.originalText});
+   downloadBusy=false;
+ }
+}
+document.addEventListener("click",async e=>{
+ const b=e.target.closest("[data-action], [data-template-use], [data-template-download], [data-policy-toggle], [data-provider], [data-wizard]");
+ if(!b)return;
+ if(b.matches("[data-action='save']")){B.saveState();setSaveStatus("Saved");return}
+ if(b.matches("[data-action='download']")){await handleDownload(window.DEWIFY_DOWNLOAD_STORE_ZIP);return}
+ if(b.matches("[data-template-use]")){patch(s=>s.templateId=b.dataset.templateUse);setSaveStatus("Template selected");if(page==="templates")renderTemplates();else render();return}
+ if(b.matches("[data-template-download]")){await handleDownload(window.DEWIFY_DOWNLOAD_TEMPLATE,b.dataset.templateDownload);return}
+ if(b.matches("[data-provider]")){patch(s=>s.payment.provider=b.dataset.provider);renderPayment();setSaveStatus("Checkout saved");return}
+});
+document.addEventListener("input",e=>{
+ const el=e.target;
+ if(el.matches("[data-field]")){
+   let v=el.value;
+   if(el.type==="color"){const c=el.parentElement.querySelector("code");if(c)c.textContent=v}
+   if(el.dataset.field in state().store)patch(s=>s.store[el.dataset.field]=v);
+   setSaveStatus("Saving…");
+ }
+ if(el.matches("[data-policy]")){patch(s=>s.policies[el.dataset.policy]=el.value);setSaveStatus("Saving…")}
+});
+document.addEventListener("change",async e=>{
+ const el=e.target;
+ if(el.matches("[data-field]") && el.dataset.field in state().store)patch(s=>s.store[el.dataset.field]=el.value);
+ if(el.matches("[data-policy-toggle]")){patch(s=>s.policies[el.dataset.policyToggle]=el.checked);if(page==="policies")renderPolicies();else render()}
+ if(el.matches("[data-policy]"))patch(s=>s.policies[el.dataset.policy]=el.value);
+});
 function renderHome(){
  const s=state(),r=readiness(),t=templateById(s.templateId);
  const productWord=s.products.length+" product"+(s.products.length===1?"":"s");
  root.innerHTML=layout("Build it once. Ship it clean.","DEWIFY / OVERVIEW","A browser-local builder for fast storefront creation. No account email, phone number or payment credentials required.",
  "<section class='hero-dashboard'><div class='dashboard-copy'><div class='live-line'><span></span> LOCAL WORKSPACE</div><h2>"+esc(s.store.name||"Your store starts here.")+"</h2><p>"+esc(s.store.tagline||"Set up the essentials, pick a template, add products, then export the storefront.")+"</p><div class='dashboard-actions'><a class='button button-gold' href='builder-setup.html'>Start / resume setup</a><a class='button' href='builder-templates.html'>Browse templates</a><a class='button' href='builder-products.html'>Open products</a></div></div><div class='dashboard-status'><div class='status-top'><span>BUILD STATUS</span><strong>"+(r.ready?"READY":"IN PROGRESS")+"</strong></div><div class='status-meter'><i style='width:"+Math.round(((setupFields.length-(r.missing.length))/Math.max(1,setupFields.length))*100)+"%'></i></div><p id='ready-copy'>"+(r.ready?"Everything needed for export is ready.":r.missing.length+" item"+(r.missing.length===1?"":"s")+" still needed: "+esc(r.missing.join(", ")))+"</p></div></section>"+
  "<section class='metric-grid'><article><span>PRODUCTS</span><strong>"+productWord+"</strong><a href='builder-products.html'>Manage ↗</a></article><article><span>TEMPLATE</span><strong>"+esc(t?t.name:"Not selected")+"</strong><a href='builder-templates.html'>Browse ↗</a></article><article><span>CHECKOUT</span><strong>"+esc(s.payment.provider||"Not selected")+"</strong><a href='builder-payment.html'>Set up ↗</a></article><article><span>DOMAIN</span><strong>"+esc(s.domain||"Not set")+"</strong><a href='builder-publish.html'>Publish ↗</a></article></section>"+
- "<section class='next-grid'><a class='next-card' href='builder-editor.html'><span>01 / EDITOR</span><h3>See the site live.</h3><p>Change the core copy and visual direction while the preview updates beside it.</p></a><a class='next-card' href='builder-products.html'><span>02 / PRODUCTS</span><h3>Your products actually appear.</h3><p>Add files, thumbnails and details once. The Products page becomes the source of truth.</p></a><a class='next-card' href='builder-publish.html'><span>03 / EXPORT</span><h3>Download only when complete.</h3><p>The ZIP stays disabled until the required setup is finished.</p></a></section>");
+ "<section class='next-grid'><a class='next-card' href='builder-editor.html'><span>01 / EDITOR</span><h3>See the site live.</h3><p>Change the core copy and visual direction while the preview updates beside it.</p></a><a class='next-card' href='builder-products.html'><span>02 / PRODUCTS</span><h3>Your products actually appear.</h3><p>Add files, thumbnails and details once. The Products page becomes the source of truth.</p></a><a class='next-card' href='builder-publish.html'><span>03 / EXPORT</span><h3>Download whenever you need a draft.</h3><p>Draft ZIPs are allowed while you are still building. Finish the checklist before publishing.</p></a></section>");
 }
 const setupScreens=[
  {k:"01",title:"Name the store.",lead:"Keep it direct. This becomes the storefront identity.",fields:[["name","Store name","text",""],["tagline","Tagline","text",""],["category","What are you selling?","select",["Digital products","AI resources","Design assets","Education","Creator tools","Other"]],["customer","Who is it for?","text","Creators, freelancers, businesses…"]]},
@@ -51,16 +91,15 @@ function renderTemplates(){
  const ts=getTemplates(),categories=["All"].concat(Array.from(new Set(ts.map(t=>t.niche)))),q=String(sessionStorage.getItem("dewify-template-q")||""),cat=sessionStorage.getItem("dewify-template-cat")||"All";
  root.innerHTML=layout("Browse before you build.","DEWIFY / TEMPLATES","Pick a direction visually first. Every template keeps the black + golden-star system so the brand stays recognisable.",
  "<section class='template-toolbar'><label class='search-box'><span>SEARCH</span><input id='template-search' value='"+esc(q)+"' placeholder='Search AI, creator, business…'></label><div class='filter-row'>"+categories.map(c=>"<button type='button' data-template-cat='"+esc(c)+"' class='"+(c===cat?"active":"")+"'>"+esc(c)+"</button>").join("")+"</div></section><section id='template-grid' class='template-grid'></section>");
- const draw=()=>{const query=String($("#template-search").value||"").toLowerCase().trim();const filtered=ts.filter(t=>(cat==="All"||t.niche===cat)&&(!query||t.name.toLowerCase().includes(query)||t.niche.toLowerCase().includes(query)||t.style.toLowerCase().includes(query)));$("#template-grid").innerHTML=filtered.length?filtered.map(miniCard).join(""):"<div class='empty-box'><strong>No templates found.</strong><p>Try a broader search.</p></div>";$$("[data-template-preview]").forEach(b=>b.onclick=()=>previewTemplate(b.dataset.templatePreview));$$("[data-template-use]").forEach(b=>b.onclick=()=>{patch(s=>s.templateId=b.dataset.templateUse);saveMessage();renderTemplates();})};
+ const draw=()=>{const query=String($("#template-search").value||"").toLowerCase().trim();const filtered=ts.filter(t=>(sessionStorage.getItem("dewify-template-cat")||"All")==="All"||t.niche===(sessionStorage.getItem("dewify-template-cat")||"All")).filter(t=>!query||t.name.toLowerCase().includes(query)||t.niche.toLowerCase().includes(query)||t.style.toLowerCase().includes(query));$("#template-grid").innerHTML=filtered.length?filtered.map(miniCard).join(""):"<div class='empty-box'><strong>No templates found.</strong><p>Try a broader search.</p></div>"};
  $("#template-search").addEventListener("input",()=>{sessionStorage.setItem("dewify-template-q",$("#template-search").value);draw()});
- $$("[data-template-cat]").forEach(b=>b.onclick=()=>{sessionStorage.setItem("dewify-template-cat",b.dataset.templateCat);renderTemplates()});draw();
+ $("[data-template-cat]").forEach(b=>b.onclick=()=>{sessionStorage.setItem("dewify-template-cat",b.dataset.templateCat);renderTemplates()});draw();
 }
 function renderEditor(){
  const s=state(),t=templateById(s.templateId);
  root.innerHTML=layout("Edit the direction.","DEWIFY / EDITOR","Keep the controls small. The preview is the product, not a dashboard full of settings.",
  "<section class='editor-layout'><aside class='editor-controls'><div class='editor-selected'><span>SELECTED TEMPLATE</span><strong>"+esc(t?t.name:"Choose a template first")+"</strong><a href='builder-templates.html'>Change template ↗</a></div>"+field("name","Store name","text",s.store.name)+field("tagline","Tagline","text",s.store.tagline)+field("accent","Accent","color",s.store.accent)+field("cta","CTA","select",s.store.cta,["Get it now","Buy the drop","Get access","Start creating"])+field("promise","Store promise","textarea",s.store.promise)+"<p class='edit-note'>Changes save automatically to this browser workspace.</p></aside><div class='editor-preview'><div class='preview-bar'><span>LIVE PREVIEW</span><span>"+(t?"TEMPLATE "+String(t.number).padStart(2,"0"):"NO TEMPLATE")+"</span></div><iframe id='live-preview' title='Live storefront preview'></iframe></div></section>");
  bindFields();const frame=$("#live-preview");frame.srcdoc=t?templateDoc(t,state(),true):templateDoc(getTemplates()[0],state(),true);
- window.addEventListener("dewify:state",()=>{const tt=templateById(state().templateId);frame.srcdoc=tt?templateDoc(tt,state(),true):templateDoc(getTemplates()[0],state(),true)},{once:false});
 }
 async function productThumb(id){
  const f=await getFile(id+":thumb");return f&&f.blob?URL.createObjectURL(f.blob):"";
@@ -103,12 +142,16 @@ function renderPublish(){
   ["Customer checkout selected",!!s.payment.provider,"builder-payment.html"],
   ["Custom domain",!!validDomain(s.domain),"builder-publish.html"]
  ];
- root.innerHTML=layout("Publish when it is actually ready.","DEWIFY / PUBLISH","The download button is intentionally locked until the storefront has everything needed for a clean export.",
+ root.innerHTML=layout("Publish when it is actually ready.","DEWIFY / PUBLISH","You can export a working draft at any point. Finish the missing items before publishing the store.",
  "<section class='publish-top'><div class='publish-meter'><span>"+(r.ready?"READY TO EXPORT":"NOT READY")+"</span><strong>"+(r.ready?"100":"")+ (r.ready?"%":"")+"</strong><i><b style='width:"+Math.max(4,Math.round((checks.filter(x=>x[1]).length/checks.length)*100))+"%'></b></i><p id='ready-copy'>"+(r.ready?"All required pieces are present.":r.missing.length+" item"+(r.missing.length===1?"":"s")+" still needed: "+esc(r.missing.join(", ")))+"</p></div><div class='publish-actions'><button type='button' id='download-zip' class='button button-gold' "+(r.ready?"":"disabled")+">Download ZIP</button><a class='button' href='builder-editor.html'>Review editor ↗</a></div></section><section class='checklist'>"+checks.map(x=>checklistRow(x[0],x[1],x[2])).join("")+"</section><section class='domain-box'><div><span>DOMAIN</span><strong>"+esc(s.domain||"Not set")+"</strong></div><label>Store domain<input id='domain-input' value='"+esc(s.domain)+"' placeholder='shop.example.com'></label><button id='domain-save' class='button button-gold' type='button'>Save domain</button></section><section class='export-note'><strong>What the ZIP contains</strong><p>Storefront pages, your product files, enabled policy pages, a public hosted-payment-link placeholder config, CNAME, and setup instructions. Secret keys are never collected.</p></section>");
  $("#domain-save").onclick=()=>{const v=validDomain($("#domain-input").value);if(!v){$("#domain-input").focus();return}patch(x=>x.domain=v);renderPublish()};
- $("#download-zip").onclick=async()=>{if(!r.ready)return;const fn=window.DEWIFY_DOWNLOAD_STORE_ZIP;if(typeof fn!=="function"){alert("Export module is not loaded.");return}const b=$("#download-zip");b.disabled=true;b.textContent="Building ZIP…";try{await fn();b.textContent="ZIP downloaded"}catch(e){console.error(e);b.textContent="Download ZIP";alert(e&&e.message?e.message:"Could not build the ZIP.")}setTimeout(()=>renderPublish(),900)};
+ $("#download-zip").onclick=()=>handleDownload(window.DEWIFY_DOWNLOAD_STORE_ZIP);
 }
 async function boot(){navReady();if(page==="home")renderHome();else if(page==="setup")renderSetup();else if(page==="templates")renderTemplates();else if(page==="editor")renderEditor();else if(page==="products")await renderProducts();else if(page==="policies")renderPolicies();else if(page==="payment")renderPayment();else if(page==="publish"){const sc=document.createElement("script");sc.src="builder-export-v2.js";sc.onload=renderPublish;sc.onerror=renderPublish;document.body.appendChild(sc)}}
+window.addEventListener("dewify:state",()=>{
+ const frame=$("#live-preview");if(frame){const tt=templateById(state().templateId);frame.srcdoc=tt?templateDoc(tt,state(),true):templateDoc(getTemplates()[0],state(),true)}
+ refreshConditional?.();
+});
 window.addEventListener("storage",()=>location.reload());
 boot();
 })();
