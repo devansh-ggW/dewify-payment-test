@@ -10,8 +10,8 @@ for(const p of ["razorpay","stripe","custom"])assert.equal(h.includes('data-paym
 assert.equal(core.includes('dewify:builder:v4'),true);assert.equal(core.includes("indexedDB.open"),true);assert.equal(core.includes("async function addProduct"),true);
 assert.equal(app.includes("Your ZIP will still be created"),true);assert.equal(app.includes("Defaults will be used so you can keep going."),true);assert.equal(app.includes("data-action=\"use-template\""),true);
 for(const t of ["noir","paper","gallery","signal","archive","studio"])assert.equal(c.includes("."+t),true,"Missing theme "+t);
-assert.equal(exp.includes('zip.file("catalog.html"'),true);assert.equal(exp.includes('zip.file("privacy.html"'),true);assert.equal(exp.includes('zip.file("terms.html"'),true);assert.equal(exp.includes('if(s.cookies)'),true);assert.equal(exp.includes('zip.file("cookie.html"'),true);assert.equal(exp.includes('zip.file("cookie-policy.html"'),true);
-assert.equal(exp.includes('zip.file("PAYMENT-SETUP.md"'),true);assert.equal(exp.includes('zip.file("CNAME"'),true);assert.equal(c.includes("@media(max-width:760px)"),true);
+assert.equal(exp.includes('z.file("catalog.html"'),true);assert.equal(exp.includes('z.file("privacy.html"'),true);assert.equal(exp.includes('z.file("terms.html"'),true);assert.equal(exp.includes('if(s.cookies)'),true);assert.equal(exp.includes('z.file("cookie.html"'),true);assert.equal(exp.includes('z.file("cookie-policy.html"'),true);
+assert.equal(exp.includes('z.file("PAYMENT-SETUP.md"'),true);assert.equal(exp.includes('z.file("CNAME"'),true);assert.equal(c.includes("@media(max-width:760px)"),true);
 console.log("PASS 1 — single-screen builder, no legacy dashboard");
 console.log("PASS 2 — store fields, soft warnings, autosave");
 console.log("PASS 3 — catalog modal, product thumbnails, remove flow");
