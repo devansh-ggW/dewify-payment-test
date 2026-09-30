@@ -15,6 +15,7 @@ jobs:
         run: |
           node --check builder.js
           node --check accounts.js
+          node --check builder-export.js
           node --check scripts/verify_builder.mjs
       - name: Run builder assertions
         run: node scripts/verify_builder.mjs
